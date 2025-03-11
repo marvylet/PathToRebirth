@@ -23,5 +23,5 @@ public class Console {
 
     }
 
-    private void start(){}
+    public void start(){}
 }
