@@ -1,3 +1,6 @@
+import Characters.Character;
+import Items.Item;
+
 import java.util.ArrayList;
 
 public class Location {
@@ -34,6 +37,12 @@ public class Location {
     public void setConnectedRooms(ArrayList<Integer> connectedRooms) {
         this.connectedRooms = connectedRooms;
     }
+
+    public ArrayList<Character> loadChararacters(){}
+
+    public ArrayList<Item> loadItems(){}
+
+
 
     @Override
     public String toString() {
