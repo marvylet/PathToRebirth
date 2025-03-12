@@ -2,7 +2,7 @@ package Characters;
 
 import java.util.ArrayList;
 
-public class Character {
+public abstract class Character {
     private String name;
     private ArrayList<Integer> rooms;
     private int relation;
@@ -13,7 +13,7 @@ public class Character {
         rooms = new ArrayList<>();
     }
 
-    public String getDialogue(){}
+    public abstract String getDialogue();
 
-    public int changeRelation(){}
+    public abstract int changeRelation();
 }
