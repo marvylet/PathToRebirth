@@ -1,3 +1,5 @@
+package Map;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -56,13 +58,15 @@ public class MansionMap {
         return false;
     }
 
-    public ArrayList<String> locationNames(){
+    public String locationNames(){
         ArrayList<Integer> locationss = locations.get(currentLoc).getConnectedRooms();
         ArrayList<String> locationNames = new ArrayList<>();
+        String text = "";
         for(int i = 0; i < locationss.size(); i++){
             locationNames.add(locations.get(i).getName());
+            text += "   " + locationss.get(i) + " " + locationNames.get(i) + "\n";
         }
-        return locationNames;
+        return text;
     }
 
 

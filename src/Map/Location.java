@@ -1,3 +1,5 @@
+package Map;
+
 import Characters.Character;
 import Items.Item;
 
@@ -46,7 +48,7 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
+        return "Map.Location{" +
                 "ID=" + ID +
                 ", name='" + name + '\'' +
                 ", connectedRooms=" + connectedRooms +
