@@ -15,6 +15,29 @@ public abstract class Item {
         rooms = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isGrabbable() {
+        return grabbable;
+    }
+
+    public void setGrabbable(boolean grabbable) {
+        this.grabbable = grabbable;
+    }
+
+    public boolean isMoveable() {
+        return moveable;
+    }
+
+    public void setMoveable(boolean moveable) {
+        this.moveable = moveable;
+    }
 
     public abstract String getDescription();
 

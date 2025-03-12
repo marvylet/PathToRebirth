@@ -1,3 +1,5 @@
+package Map;
+
 import Items.Item;
 
 import java.util.HashMap;
