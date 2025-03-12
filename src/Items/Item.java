@@ -2,7 +2,7 @@ package Items;
 
 import java.util.ArrayList;
 
-public class Item {
+public abstract class Item {
     private String name;
     private ArrayList<Integer> rooms;
     private boolean grabbable;
@@ -16,7 +16,7 @@ public class Item {
     }
 
 
-    public String getDescription() {}
+    public abstract String getDescription();
 
-    public String getEffect(){}
+    public abstract String getEffect();
 }
