@@ -19,5 +19,14 @@ public class Taylor extends Character{
         return "";
     }
 
+    @Override
+    public void addRooms() {
+        rooms.add(17);
+        rooms.add(6);
+        rooms.add(11);
+        rooms.add(20);
+        rooms.add(14);
+    }
+
 
 }

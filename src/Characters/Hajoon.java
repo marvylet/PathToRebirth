@@ -28,5 +28,14 @@ public class Hajoon extends Character {
 
     }
 
+    @Override
+    public void addRooms() {
+        rooms.add(4);
+        rooms.add(17);
+        rooms.add(14);
+        rooms.add(18);
+        rooms.add(20);
+    }
+
 
 }

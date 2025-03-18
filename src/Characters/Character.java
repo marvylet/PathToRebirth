@@ -60,4 +60,14 @@ public abstract class Character {
         relation -= 1;
         return relation;
     }
+
+    public abstract void addRooms();
+
+    public ArrayList<Integer> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(ArrayList<Integer> rooms) {
+        this.rooms = rooms;
+    }
 }

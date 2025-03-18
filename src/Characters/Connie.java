@@ -10,6 +10,10 @@ public class Connie extends Character{
         return "";
     }
 
+    @Override
+    public void addRooms() {
+
+    }
 
 
 }

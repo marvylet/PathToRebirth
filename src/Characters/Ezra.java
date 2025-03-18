@@ -26,5 +26,14 @@ public class Ezra extends Character {
         return "";
     }
 
+    @Override
+    public void addRooms() {
+        rooms.add(2);
+        rooms.add(10);
+        rooms.add(8);
+        rooms.add(17);
+        rooms.add(9);
+    }
+
 
 }
