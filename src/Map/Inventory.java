@@ -28,6 +28,13 @@ public class Inventory {
         return false;
     }
 
+    public boolean containsItem(String name){
+        if(items.containsKey(name)){
+            return true;
+        }
+        return false;
+    }
+
     public boolean addNote(Item note){
         if(note != null){
             notes.add(note);

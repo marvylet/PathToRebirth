@@ -10,11 +10,13 @@ public class MansionMap {
     private HashMap<Integer, Location> locations;
     private int startingLoc;
     private int currentLoc;
+    private boolean lockedDoor;
 
     public MansionMap() {
         this.locations = new HashMap<>();
         this.startingLoc = 1;
         this.currentLoc = startingLoc;
+        this.lockedDoor = true;
     }
 
     public boolean spawnRooms(){
@@ -69,5 +71,11 @@ public class MansionMap {
         return text;
     }
 
+    public boolean isLockedDoor() {
+        return lockedDoor;
+    }
 
+    public void setLockedDoor(boolean lockedDoor) {
+        this.lockedDoor = lockedDoor;
+    }
 }
