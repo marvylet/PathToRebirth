@@ -35,6 +35,17 @@ public class Inventory {
         return false;
     }
 
+    public String effect(String name){
+        if(items.containsKey(name)){
+            if(items.get(name).getDescription().equals("")){
+                return "Item does not have an effect.";
+            }else{
+                return items.get(name).getDescription();
+            }
+        }
+        return "Item not found";
+    }
+
     public boolean addNote(Item note){
         if(note != null){
             notes.add(note);
