@@ -9,11 +9,13 @@ public class Location {
     private int ID;
     private String name;
     private ArrayList<Integer> connectedRooms;
+    private ArrayList<Character> characters;
 
     public Location(int ID, String name, ArrayList<Integer> connectedRooms) {
         this.ID = ID;
         this.name = name;
         this.connectedRooms = connectedRooms;
+        this.characters = new ArrayList<>();
     }
 
     public int getID() {
@@ -40,15 +42,23 @@ public class Location {
         this.connectedRooms = connectedRooms;
     }
 
-    public ArrayList<Character> loadChararacters(){}
+    public boolean loadChararacters(Character character){
+        for(int i = 0; i < character.getRooms().size(); i++){
+            if(character.getRooms().get(i) == ID){
+                characters.add(character);
+                return true;
+            }
+        }
+        return false;
+    }
 
-    public ArrayList<Item> loadItems(){}
+    //public ArrayList<Item> loadItems(){}
 
 
 
     @Override
     public String toString() {
-        return "Map.Location{" +
+        return "Location{" +
                 "ID=" + ID +
                 ", name='" + name + '\'' +
                 ", connectedRooms=" + connectedRooms +

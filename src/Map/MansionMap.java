@@ -52,6 +52,30 @@ public class MansionMap {
         }
     }
 
+    public HashMap<Integer, Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(HashMap<Integer, Location> locations) {
+        this.locations = locations;
+    }
+
+    public int getCurrentLoc() {
+        return currentLoc;
+    }
+
+    public void setCurrentLoc(int currentLoc) {
+        this.currentLoc = currentLoc;
+    }
+
+    public int getStartingLoc() {
+        return startingLoc;
+    }
+
+    public void setStartingLoc(int startingLoc) {
+        this.startingLoc = startingLoc;
+    }
+
     public boolean moveToLocation(int ID){
         if(locations.get(currentLoc).getConnectedRooms().contains(ID)){
             currentLoc = ID;
