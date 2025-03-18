@@ -2,7 +2,7 @@ package Characters;
 
 public class Aiysha extends Character {
     public Aiysha(String name) {
-        super(name, 0);
+        super(name, 0, 5);
     }
 
     @Override

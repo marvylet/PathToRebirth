@@ -11,13 +11,15 @@ public abstract class Character {
     protected int relation;
     protected ArrayList<String> dialogue;
     protected int index;
+    protected int charID;
 
-    public Character(String name, int relation) {
+    public Character(String name, int relation, int charID) {
         this.name = name;
         this.relation = relation;
         rooms = new ArrayList<>();
         dialogue = new ArrayList<>();
         index = 0;
+        charID = charID;
     }
 
     public boolean loadDialogue(String file){
@@ -69,5 +71,13 @@ public abstract class Character {
 
     public void setRooms(ArrayList<Integer> rooms) {
         this.rooms = rooms;
+    }
+
+    public int getCharID() {
+        return charID;
+    }
+
+    public void setCharID(int charID) {
+        this.charID = charID;
     }
 }

@@ -2,7 +2,7 @@ package Characters;
 
 public class Ezra extends Character {
     public Ezra(String name, int relation) {
-        super(name, -1);
+        super(name, -1, 6);
     }
 
     @Override

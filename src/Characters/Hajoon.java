@@ -6,7 +6,7 @@ public class Hajoon extends Character {
     private Scanner sc;
 
     public Hajoon(String name, int relation) {
-        super(name, 1);
+        super(name, 1, 2);
         sc = new Scanner(System.in);
     }
 
