@@ -9,7 +9,7 @@ public class Inventory {
     private HashMap<String, Item> items;
 
     public Inventory() {
-        capacity = 3;
+        capacity = 5;
         items = new HashMap<>();
     }
 

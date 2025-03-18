@@ -1,17 +1,32 @@
 package Items;
 
 public class Gift extends Item{
-    public Gift(String name, boolean grabbable, boolean moveable) {
-        super(name, grabbable, moveable);
+    public Gift(String name) {
+        super(name);
     }
 
     @Override
     public String getDescription() {
-        return "";
+        return "Somebody else might make some use of this.";
     }
 
     @Override
     public String getEffect() {
-        return "";
+        return "improve relationship";
+    }
+
+    @Override
+    public boolean effect() {
+        return true;
+    }
+
+    @Override
+    public boolean grabbable() {
+        return true;
+    }
+
+    @Override
+    public boolean moveable() {
+        return false;
     }
 }
