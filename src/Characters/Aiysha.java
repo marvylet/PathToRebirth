@@ -1,17 +1,26 @@
 package Characters;
 
-public class Aiysha extends Character{
-    public Aiysha(String name, int relation) {
-        super(name, relation);
+public class Aiysha extends Character {
+    public Aiysha(String name) {
+        super(name, 0);
     }
 
     @Override
     public String getDialogue() {
-        return "";
+        switch (index) {
+            case 0:
+                index++;
+                return dialogue.get(0);
+
+            case 1:
+                index++;
+                return dialogue.get(1);
+
+            case 2:
+                return dialogue.get(2);
+        }
+        return " ";
     }
 
-    @Override
-    public int changeRelation() {
-        return 0;
-    }
+
 }

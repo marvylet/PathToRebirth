@@ -6,16 +6,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Character {
-    private String name;
-    private ArrayList<Integer> rooms;
-    private int relation;
-    private ArrayList<String> dialogue;
+    protected String name;
+    protected ArrayList<Integer> rooms;
+    protected int relation;
+    protected ArrayList<String> dialogue;
+    protected int index;
 
     public Character(String name, int relation) {
         this.name = name;
         this.relation = relation;
         rooms = new ArrayList<>();
         dialogue = new ArrayList<>();
+        index = 0;
     }
 
     public boolean loadDialogue(String file){
@@ -32,7 +34,30 @@ public abstract class Character {
         }
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getRelation() {
+        return relation;
+    }
+
+    public void setRelation(int relation) {
+        this.relation = relation;
+    }
+
     public abstract String getDialogue();
 
-    public abstract int changeRelation();
+    public  int changeRelationPos(){
+        relation += 1;
+        return relation;
+    }
+    public  int changeRelationNeg(){
+        relation -= 1;
+        return relation;
+    }
 }

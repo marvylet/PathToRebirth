@@ -10,8 +10,6 @@ public class Connie extends Character{
         return "";
     }
 
-    @Override
-    public int changeRelation() {
-        return 0;
-    }
+
+
 }
