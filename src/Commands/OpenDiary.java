@@ -1,9 +1,12 @@
 package Commands;
 
+import Map.Inventory;
+
 public class OpenDiary extends Command {
+    private Inventory inv;
     @Override
     public String execute() {
-        return "";
+        return inv.viewDiary();
     }
 
     @Override

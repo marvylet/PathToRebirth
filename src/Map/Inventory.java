@@ -11,12 +11,14 @@ public class Inventory {
     private HashMap<String, Item> items;
     private ArrayList<String> itemNames;
     private ArrayList<Item> notes;
+    private ArrayList<String> noteNames;
 
     public Inventory() {
         capacity = 5;
         items = new HashMap<>();
         itemNames = new ArrayList<>();
         notes = new ArrayList<>();
+        noteNames = new ArrayList<>();
     }
 
     public boolean addItem(String name, Item item){
@@ -49,9 +51,18 @@ public class Inventory {
     public boolean addNote(Item note){
         if(note != null){
             notes.add(note);
+            noteNames.add(note.getName());
             return true;
         }
         return false;
+    }
+
+    public String viewDiary(){
+        String diary = "";
+        for(int i = 0; i < noteNames.size(); i++){
+            diary += "  " + noteNames.get(i) + "\n";
+        }
+        return diary;
     }
 
     public String viewInventory(){
