@@ -9,10 +9,13 @@ public class GoTo extends Command{
     private MansionMap map;
     private Scanner sc;
 
+    public GoTo(MansionMap map) {
+        this.map = map;
+        sc = new Scanner(System.in);
+    }
+
     @Override
     public String execute() {
-        map = new MansionMap();
-        sc = new Scanner(System.in);
 
         System.out.print("You can move to " + map.locationNames());
         String room = sc.next();
@@ -20,7 +23,7 @@ public class GoTo extends Command{
         if(map.moveToLocation(Integer.parseInt(room))){
             return "Moved to room.";
         }else{
-            return "Couldn't move to room, invalid parameter.";
+            return "Couldn't move to room.";
         }
 
     }

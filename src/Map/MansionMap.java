@@ -27,8 +27,8 @@ public class MansionMap {
             String name;
             ArrayList<Integer> rooms;
 
-            String line = buff.readLine();
-            while(line != null){
+            String line;
+            while((line = buff.readLine()) != null){
                 String[] lines = line.split(";");
                 ID = Integer.parseInt(lines[0]);
                 name = lines[1];
@@ -88,10 +88,15 @@ public class MansionMap {
         ArrayList<Integer> locationss = locations.get(currentLoc).getConnectedRooms();
         ArrayList<String> locationNames = new ArrayList<>();
         String text = "";
+
+
         for(int i = 0; i < locationss.size(); i++){
-            locationNames.add(locations.get(i).getName());
-            text += "   " + locationss.get(i) + " " + locationNames.get(i) + "\n";
+            text += "\n   " + locations.get(locationss.get(i)).getID() + " " + locations.get(locationss.get(i)).getName();
         }
+
+
+
+
         return text;
     }
 
