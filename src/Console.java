@@ -58,6 +58,7 @@ public class Console {
                 What is this place? How did I get here? Who... am I?
                 The only thing you can remember is your nickname, Connie.
                 You don't know what this place is, but the feeling from it is very... unpleasing. You should try to leave as soon as possible.
+                Perhaps there may be some clues or notes scattered around. Maybe, if you find them all, you might be able to leave?
                 
                 Type "help" to list all available commands.
                 """);
