@@ -91,12 +91,14 @@ public class Location {
     }
 
     public Item viewItem(String name){
+        Item item = null;
         for(int i = 0; i < items.size(); i++){
             if(items.get(i).getName().equals(name)){
                 if(inv.freeInv()){
+                    item = items.get(i);
                     items.remove(items.get(i));
                 }
-                return items.get(i);
+                return item;
             }
         }
         return null;
