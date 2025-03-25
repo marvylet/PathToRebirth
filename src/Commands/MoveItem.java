@@ -1,15 +1,37 @@
 package Commands;
 
-import Items.Item;
+
+import Map.*;
+
+import java.util.Scanner;
 
 public class MoveItem extends Command {
-    private Item item;
+    private Inventory inv;
+    private MansionMap map;
+    private Scanner sc;
+
+    public MoveItem(Inventory inv, MansionMap map) {
+        this.inv = inv;
+        this.map = map;
+        this.sc = new Scanner(System.in);
+    }
+
     @Override
     public String execute() {
-        if(item.moveable()){
-            return "Item successfully moved.";
+        if (map.getLocations().get(map.getCurrentLoc()).getItems() == null) {
+            return "No items";
         }
-        return "Not able to move the item.";
+
+        if (map.getLocations().get(map.getCurrentLoc()).isMoveLocked()) {
+
+            System.out.println("Items in this room:");
+            System.out.print(map.getLocations().get(map.getCurrentLoc()).viewItems());
+            String s = sc.next();
+
+            return map.getLocations().get(map.getCurrentLoc()).moveItem(map.getLocations().get(map.getCurrentLoc()).findItem(s));
+
+        }
+        return "Wasn't able to move item.";
     }
 
     @Override

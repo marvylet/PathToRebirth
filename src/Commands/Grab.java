@@ -30,7 +30,7 @@ public class Grab extends Command{
         System.out.print(map.getLocations().get(map.getCurrentLoc()).viewItems());
         String s = sc.next();
 
-        return inv.addItem(map.getLocations().get(map.getCurrentLoc()).viewItem(s));
+        return inv.addItem(map.getLocations().get(map.getCurrentLoc()).findItem(s));
 
     }
 

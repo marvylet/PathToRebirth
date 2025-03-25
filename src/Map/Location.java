@@ -90,7 +90,7 @@ public class Location {
         return s;
     }
 
-    public Item viewItem(String name){
+    public Item findItem(String name){
         Item item = null;
         for(int i = 0; i < items.size(); i++){
             if(items.get(i).getName().equals(name)){
@@ -103,6 +103,15 @@ public class Location {
         }
         return null;
     }
+
+    public String moveItem(Item item){
+        if(item.moveable()){
+            setMoveLocked(false);
+            return "Item successfully moved!";
+        }
+        return "Couldn't move item.";
+    }
+
 
     public String talkToChar(String charName){
         for(int i = 0; i < characters.size(); i++){

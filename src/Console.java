@@ -26,9 +26,9 @@ public class Console {
         commands.put("go", new GoTo(map));
         commands.put("grab", new Grab(inv, map));
         commands.put("interact", new Interact());
-        commands.put("move", new MoveItem());
-        commands.put("diary", new OpenDiary());
-        commands.put("inventory", new OpenInventory());
+        commands.put("move", new MoveItem(inv, map));
+        commands.put("diary", new OpenDiary(inv));
+        commands.put("inventory", new OpenInventory(inv));
         commands.put("talk", new TalkTo(map));
         commands.put("use", new Use());
         commands.put("exit", new CloseGame());
@@ -36,6 +36,7 @@ public class Console {
     }
 
     private void doCommand(){
+        System.out.print("What would you like to do?");
         System.out.print("> ");
         String command = sc.next();
         if(commands.containsKey(command)){
