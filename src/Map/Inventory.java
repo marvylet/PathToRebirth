@@ -1,6 +1,7 @@
 package Map;
 
 import Items.Item;
+import Items.Lantern;
 import Items.Note;
 
 import java.util.ArrayList;
@@ -19,12 +20,27 @@ public class Inventory {
         itemNames = new ArrayList<>();
         notes = new ArrayList<>();
         noteNames = new ArrayList<>();
+        items.put("Lantern", new Lantern("Lantern"));
     }
 
-    public boolean addItem(String name, Item item){
+    public String addItem(Item item){
         if(items.size() < capacity){
-            items.put(name, item);
-            itemNames.add(name);
+            if((item instanceof Note)){
+                notes.add(item);
+                noteNames.add(item.getName());
+                return "Note successfully added.";
+
+            }else if(item.grabbable()){
+                items.put(item.getName(), item);
+                itemNames.add(item.getName());
+                return "Item successfully added";
+            }
+        }
+        return "Item is not grabbable";
+    }
+
+    public boolean freeInv(){
+        if(items.size() < capacity){
             return true;
         }
         return false;

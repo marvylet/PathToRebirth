@@ -1,6 +1,7 @@
 package Map;
 
 import Characters.Character;
+import Items.Item;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,12 +14,14 @@ public class MansionMap {
     private int startingLoc;
     private int currentLoc;
     private boolean lockedDoor;
+    private Inventory inv;
 
-    public MansionMap() {
+    public MansionMap(Inventory inv) {
         this.locations = new HashMap<>();
         this.startingLoc = 1;
         this.currentLoc = startingLoc;
         this.lockedDoor = true;
+        this.inv = inv;
     }
 
     public boolean spawnRooms(){
@@ -31,6 +34,7 @@ public class MansionMap {
             boolean keyLocked;
             boolean moveLocked;
             ArrayList<Character> people;
+            ArrayList<Item> items;
 
             String line;
             while((line = buff.readLine()) != null){
@@ -39,6 +43,7 @@ public class MansionMap {
                 name = lines[1];
                 rooms = new ArrayList<>();
                 people = new ArrayList<>();
+                items = new ArrayList<>();
 
                 String[] connectedRooms = lines[2].split("-");
                 for(int i = 0; i < connectedRooms.length; i++){
@@ -54,7 +59,13 @@ public class MansionMap {
                     people.add(character);
                 }
 
-                Location location = new Location(ID, name, rooms, keyLocked, moveLocked, people);
+                String[] item = lines[6].split("-");
+                for(int i = 0; i < item.length; i++){
+                    Items.Item it = Item.factory(item[i]);
+                    items.add(it);
+                }
+
+                Location location = new Location(ID, name, rooms, keyLocked, moveLocked, people, items, inv);
 
                 locations.put(ID, location);
 

@@ -10,16 +10,20 @@ public class Location {
     private String name;
     private ArrayList<Integer> connectedRooms;
     private ArrayList<Character> characters;
+    private ArrayList<Item> items;
     private boolean keyLocked;
     private boolean moveLocked;
+    private Inventory inv;
 
-    public Location(int ID, String name, ArrayList<Integer> connectedRooms, boolean keyLocked, boolean moveLocked, ArrayList<Character> characters) {
+    public Location(int ID, String name, ArrayList<Integer> connectedRooms, boolean keyLocked, boolean moveLocked, ArrayList<Character> characters, ArrayList<Item> items, Inventory inv) {
         this.ID = ID;
         this.name = name;
         this.connectedRooms = connectedRooms;
         this.characters = characters;
+        this.items = items;
         this.keyLocked = keyLocked;
         this.moveLocked = moveLocked;
+        this.inv = inv;
     }
 
     public boolean isKeyLocked() {
@@ -62,6 +66,13 @@ public class Location {
         this.connectedRooms = connectedRooms;
     }
 
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
 
     public String viewChararacters(){
         String s = "";
@@ -69,6 +80,26 @@ public class Location {
             s += characters.get(i).getName() + "\n";
         }
         return s;
+    }
+
+    public String viewItems(){
+        String s = "";
+        for(int i = 0; i < items.size(); i++){
+            s += items.get(i).getName() + "\n";
+        }
+        return s;
+    }
+
+    public Item viewItem(String name){
+        for(int i = 0; i < items.size(); i++){
+            if(items.get(i).getName().equals(name)){
+                if(inv.freeInv()){
+                    items.remove(items.get(i));
+                }
+                return items.get(i);
+            }
+        }
+        return null;
     }
 
     public String talkToChar(String charName){

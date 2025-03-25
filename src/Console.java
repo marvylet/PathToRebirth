@@ -1,4 +1,5 @@
 import Commands.*;
+import Map.Inventory;
 import Map.MansionMap;
 
 import java.util.HashMap;
@@ -9,9 +10,11 @@ public class Console {
     private HashMap<String, Command> commands;
     private Scanner sc;
     private MansionMap map;
+    private Inventory inv;
 
     public Console() {
-        map = new MansionMap();
+        inv = new Inventory();
+        map = new MansionMap(inv);
         map.spawnRooms();
         start();
     }
@@ -21,7 +24,7 @@ public class Console {
         sc = new Scanner(System.in);
 
         commands.put("go", new GoTo(map));
-        commands.put("grab", new Grab());
+        commands.put("grab", new Grab(inv, map));
         commands.put("interact", new Interact());
         commands.put("move", new MoveItem());
         commands.put("diary", new OpenDiary());
