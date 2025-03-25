@@ -4,6 +4,7 @@ public class Orson extends Character {
     public Orson(String name) {
         super(name);
         this.relation = -2;
+        loadDialogue("OrsonDialogue");
     }
 
     @Override

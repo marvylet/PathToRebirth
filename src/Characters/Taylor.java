@@ -4,6 +4,7 @@ public class Taylor extends Character{
     public Taylor(String name) {
         super(name);
         this.relation = -1;
+        loadDialogue("TaylorDialogue");
     }
 
     @Override
