@@ -31,14 +31,14 @@ public class Console {
         commands.put("diary", new OpenDiary(inv));
         commands.put("inventory", new OpenInventory(inv));
         commands.put("talk", new TalkTo(map));
-        commands.put("use", new Use(inv));
+        commands.put("use", new Use(inv, map));
         commands.put("exit", new CloseGame());
         commands.put("help", new Help());
 
     }
 
     private void doCommand() {
-        System.out.println("What would you like to do?");
+        System.out.println("You are currently in " + map.getLocations().get(map.getCurrentLoc()).getName() + "\nWhat would you like to do?");
         System.out.print("> ");
         String command = sc.next();
         if (commands.containsKey(command)) {
