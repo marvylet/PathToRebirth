@@ -1,5 +1,7 @@
 package Map;
 
+import Characters.Character;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -26,6 +28,9 @@ public class MansionMap {
             int ID;
             String name;
             ArrayList<Integer> rooms;
+            boolean keyLocked;
+            boolean moveLocked;
+            ArrayList<Character> people;
 
             String line;
             while((line = buff.readLine()) != null){
@@ -33,13 +38,23 @@ public class MansionMap {
                 ID = Integer.parseInt(lines[0]);
                 name = lines[1];
                 rooms = new ArrayList<>();
+                people = new ArrayList<>();
 
                 String[] connectedRooms = lines[2].split("-");
                 for(int i = 0; i < connectedRooms.length; i++){
                     rooms.add(Integer.parseInt(connectedRooms[i]));
                 }
 
-                Location location = new Location(ID, name, rooms);
+                keyLocked = Boolean.parseBoolean(lines[3]);
+                moveLocked = Boolean.parseBoolean(lines[4]);
+
+                String[] characters = lines[5].split("-");
+                for(int i = 0; i < characters.length; i++){
+                    Characters.Character character = Character.factory(characters[i]);
+                    people.add(character);
+                }
+
+                Location location = new Location(ID, name, rooms, keyLocked, moveLocked, people);
 
                 locations.put(ID, location);
 
@@ -84,18 +99,18 @@ public class MansionMap {
         return false;
     }
 
+    public Location currentRoom(){
+        return locations.get(currentLoc);
+    }
+
     public String locationNames(){
         ArrayList<Integer> locationss = locations.get(currentLoc).getConnectedRooms();
         ArrayList<String> locationNames = new ArrayList<>();
         String text = "";
 
-
         for(int i = 0; i < locationss.size(); i++){
             text += "\n   " + locations.get(locationss.get(i)).getID() + " " + locations.get(locationss.get(i)).getName();
         }
-
-
-
 
         return text;
     }

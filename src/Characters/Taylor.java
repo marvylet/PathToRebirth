@@ -1,8 +1,9 @@
 package Characters;
 
 public class Taylor extends Character{
-    public Taylor(String name, int relation) {
-        super(name, -1, 4);
+    public Taylor(String name) {
+        super(name);
+        this.relation = -1;
     }
 
     @Override
@@ -19,14 +20,7 @@ public class Taylor extends Character{
         return "";
     }
 
-    @Override
-    public void addRooms() {
-        rooms.add(17);
-        rooms.add(6);
-        rooms.add(11);
-        rooms.add(20);
-        rooms.add(14);
-    }
+
 
 
 }

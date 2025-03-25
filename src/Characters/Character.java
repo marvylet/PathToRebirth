@@ -13,23 +13,22 @@ public abstract class Character {
     protected int index;
     protected int charID;
 
-    public Character(String name, int relation, int charID) {
+    public Character(String name) {
         this.name = name;
-        this.relation = relation;
         rooms = new ArrayList<>();
         dialogue = new ArrayList<>();
         index = 0;
-        charID = charID;
     }
 
     public boolean loadDialogue(String file){
         try {
             BufferedReader buff = new BufferedReader(new FileReader(file));
 
-            String line = buff.readLine();
-            while (line != null) {
+            String line;
+            while ((line = buff.readLine()) != null) {
                 dialogue.add(line);
             }
+
             return true;
         }catch (IOException e){
             return false;
@@ -63,7 +62,13 @@ public abstract class Character {
         return relation;
     }
 
-    public abstract void addRooms();
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public ArrayList<Integer> getRooms() {
         return rooms;
@@ -79,5 +84,18 @@ public abstract class Character {
 
     public void setCharID(int charID) {
         this.charID = charID;
+    }
+
+    //Looked up about factory in https://refactoring.guru/design-patterns/factory-method
+    //Rewrote it in a switch instead of if else
+    public static Character factory(String charName){
+        return switch(charName){
+            case "Aiysha" -> new Aiysha(charName);
+            case "Ezra" -> new Ezra(charName);
+            case "Hajoon" -> new Hajoon(charName);
+            case "Orson" -> new Orson(charName);
+            case "Taylor" -> new Taylor(charName);
+            default -> null;
+        };
     }
 }

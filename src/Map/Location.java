@@ -10,14 +10,32 @@ public class Location {
     private String name;
     private ArrayList<Integer> connectedRooms;
     private ArrayList<Character> characters;
-    private ArrayList<Integer> characterIDs;
+    private boolean keyLocked;
+    private boolean moveLocked;
 
-    public Location(int ID, String name, ArrayList<Integer> connectedRooms) {
+    public Location(int ID, String name, ArrayList<Integer> connectedRooms, boolean keyLocked, boolean moveLocked, ArrayList<Character> characters) {
         this.ID = ID;
         this.name = name;
         this.connectedRooms = connectedRooms;
-        this.characters = new ArrayList<>();
-        this.characterIDs = new ArrayList<>();
+        this.characters = characters;
+        this.keyLocked = keyLocked;
+        this.moveLocked = moveLocked;
+    }
+
+    public boolean isKeyLocked() {
+        return keyLocked;
+    }
+
+    public void setKeyLocked(boolean keyLocked) {
+        this.keyLocked = keyLocked;
+    }
+
+    public boolean isMoveLocked() {
+        return moveLocked;
+    }
+
+    public void setMoveLocked(boolean moveLocked) {
+        this.moveLocked = moveLocked;
     }
 
     public int getID() {
@@ -44,26 +62,22 @@ public class Location {
         this.connectedRooms = connectedRooms;
     }
 
-    public boolean loadChararacters(Character character){
-        for(int i = 0; i < character.getRooms().size(); i++){
-            if(character.getRooms().get(i) == ID){
-                characters.add(character);
-                characterIDs.add(character.getCharID());
-                return true;
-            }
-        }
-        return false;
-    }
-
-    //public ArrayList<Item> loadItems(){}
-
 
     public String viewChararacters(){
         String s = "";
         for(int i = 0; i < characters.size(); i++){
-            s += characterIDs.get(i) + " " + characters.get(i) + "\n";
+            s += characters.get(i).getName() + "\n";
         }
         return s;
+    }
+
+    public String talkToChar(String charName){
+        for(int i = 0; i < characters.size(); i++){
+            if(characters.get(i).getName().equals(charName)){
+                return characters.get(i).getDialogue();
+            }
+        }
+        return "No such character";
     }
 
     public ArrayList<Character> getCharacters() {

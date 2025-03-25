@@ -26,7 +26,7 @@ public class Console {
         commands.put("move", new MoveItem());
         commands.put("diary", new OpenDiary());
         commands.put("inventory", new OpenInventory());
-        commands.put("talk", new TalkTo());
+        commands.put("talk", new TalkTo(map));
         commands.put("use", new Use());
         commands.put("exit", new CloseGame());
 

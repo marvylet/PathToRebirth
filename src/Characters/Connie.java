@@ -1,8 +1,8 @@
 package Characters;
 
 public class Connie extends Character{
-    public Connie(String name, int relation) {
-        super(name, relation, 1);
+    public Connie(String name) {
+        super(name);
     }
 
     @Override
@@ -10,10 +10,7 @@ public class Connie extends Character{
         return "";
     }
 
-    @Override
-    public void addRooms() {
 
-    }
 
 
 }

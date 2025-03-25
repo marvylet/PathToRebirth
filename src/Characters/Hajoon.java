@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class Hajoon extends Character {
     private Scanner sc;
 
-    public Hajoon(String name, int relation) {
-        super(name, 1, 2);
+    public Hajoon(String name) {
+        super(name);
         sc = new Scanner(System.in);
+        this.relation = 1;
+        loadDialogue("HajoonDialogue");
     }
 
     @Override
@@ -28,14 +30,6 @@ public class Hajoon extends Character {
 
     }
 
-    @Override
-    public void addRooms() {
-        rooms.add(4);
-        rooms.add(17);
-        rooms.add(14);
-        rooms.add(18);
-        rooms.add(20);
-    }
 
 
 }

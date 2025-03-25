@@ -1,8 +1,10 @@
 package Characters;
 
 public class Ezra extends Character {
-    public Ezra(String name, int relation) {
-        super(name, -1, 6);
+    public Ezra(String name) {
+        super(name);
+        this.relation = -1;
+        loadDialogue("EzraDialogue");
     }
 
     @Override
@@ -26,14 +28,6 @@ public class Ezra extends Character {
         return "";
     }
 
-    @Override
-    public void addRooms() {
-        rooms.add(2);
-        rooms.add(10);
-        rooms.add(8);
-        rooms.add(17);
-        rooms.add(9);
-    }
 
 
 }

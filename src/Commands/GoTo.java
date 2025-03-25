@@ -17,7 +17,7 @@ public class GoTo extends Command{
     @Override
     public String execute() {
 
-        System.out.print("You can move to " + map.locationNames());
+        System.out.println("You can move to " + map.locationNames());
         String room = sc.next();
 
         if(map.moveToLocation(Integer.parseInt(room))){
