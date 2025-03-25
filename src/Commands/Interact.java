@@ -6,14 +6,22 @@ import Map.MansionMap;
 public class Interact extends Command{
     private Inventory inv;
     private MansionMap map;
+
+    public Interact(Inventory inv, MansionMap map) {
+        this.inv = inv;
+        this.map = map;
+    }
+
     @Override
     public String execute() {
-        if(inv.containsItem("key")){
-            map.setLockedDoor(false);
-            return "Door unlocked";
+        if(map.getLocations().get(map.getCurrentLoc()).isKeyLocked() || map.getLocations().get(map.getCurrentLoc()).isMoveLocked()) {
+
+            if (inv.containsItem("Key")) {
+                return map.getLocations().get(map.getCurrentLoc()).unlockDoor();
+            }
+            return "Couldn't unlock door.";
         }
-        map.setLockedDoor(true);
-        return "You don't have a key";
+        return "Door isn't locked.";
     }
 
     @Override

@@ -17,15 +17,19 @@ public class GoTo extends Command{
     @Override
     public String execute() {
 
-        System.out.println("You can move to " + map.locationNames());
-        String room = sc.next();
+        if(map.getLocations().get(map.getCurrentLoc()).isMoveLocked() || map.getLocations().get(map.getCurrentLoc()).isKeyLocked()){
+            return "Door is locked.";
+        }else {
 
-        if(map.moveToLocation(Integer.parseInt(room))){
-            return "Moved to room.";
-        }else{
-            return "Couldn't move to room.";
+            System.out.println("You can move to " + map.locationNames());
+            String room = sc.next();
+
+            if (map.moveToLocation(Integer.parseInt(room))) {
+                return "Moved to room.";
+            } else {
+                return "Couldn't move to room.";
+            }
         }
-
     }
 
     @Override

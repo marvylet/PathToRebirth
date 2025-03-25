@@ -53,6 +53,14 @@ public class Inventory {
         return false;
     }
 
+    public boolean removeItem(String name){
+        if(items.containsKey(name)){
+            items.remove(name);
+            return true;
+        }
+        return false;
+    }
+
     public String effect(String name){
         if(items.containsKey(name)){
             if(items.get(name).getDescription().equals("")){

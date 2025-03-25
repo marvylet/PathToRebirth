@@ -104,6 +104,12 @@ public class Location {
         return null;
     }
 
+    public String unlockDoor(){
+        setKeyLocked(false);
+        inv.removeItem("Key");
+        return "Door unlocked.";
+    }
+
     public String moveItem(Item item){
         if(item.moveable()){
             setMoveLocked(false);
