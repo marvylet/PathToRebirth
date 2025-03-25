@@ -17,14 +17,13 @@ public class TalkTo extends Command {
     @Override
     public String execute() {
         try {
-            System.out.println("You can talk to:");
-            System.out.print(map.getLocations().get(map.getCurrentLoc()).viewChararacters());
+            System.out.print("You can talk to:\n" + map.getLocations().get(map.getCurrentLoc()).viewChararacters());
             String s = sc.next();
 
             return map.getLocations().get(map.getCurrentLoc()).talkToChar(s);
 
         } catch (Exception e) {
-            return "Nobody to talk to";
+            return "Nobody to talk to.";
         }
     }
 

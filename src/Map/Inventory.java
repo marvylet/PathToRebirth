@@ -23,6 +23,10 @@ public class Inventory {
         items.put("Lantern", new Lantern("Lantern"));
     }
 
+    public ArrayList<Item> getNotes() {
+        return notes;
+    }
+
     public String addItem(Item item){
         if(items.size() < capacity){
             if((item instanceof Note)){
