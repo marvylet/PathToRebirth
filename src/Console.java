@@ -1,4 +1,5 @@
 import Commands.*;
+import Items.Lantern;
 import Map.Inventory;
 import Map.MansionMap;
 
@@ -30,7 +31,7 @@ public class Console {
         commands.put("diary", new OpenDiary(inv));
         commands.put("inventory", new OpenInventory(inv));
         commands.put("talk", new TalkTo(map));
-        commands.put("use", new Use());
+        commands.put("use", new Use(inv));
         commands.put("exit", new CloseGame());
         commands.put("help", new Help());
 

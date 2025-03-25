@@ -22,7 +22,7 @@ public class NightVisPotion extends Item{
 
     @Override
     public boolean grabbable() {
-        return false;
+        return true;
     }
 
     @Override

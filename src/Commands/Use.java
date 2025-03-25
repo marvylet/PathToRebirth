@@ -7,11 +7,22 @@ import java.util.Scanner;
 public class Use extends Command {
     private Scanner sc;
     private Inventory inv;
+
+    public Use(Inventory inv) {
+        this.inv = inv;
+        sc = new Scanner(System.in);
+    }
+
     @Override
     public String execute() {
-        sc = new Scanner(System.in);
-        String item = sc.nextLine();
-        return inv.effect(item);
+        if(inv.getItems().isEmpty()){
+            return "No items to use.";
+        }else {
+            System.out.println("Your inventory:" + inv.viewInventory());
+            String item = sc.next();
+
+            return inv.effect(item);
+        }
     }
 
     @Override

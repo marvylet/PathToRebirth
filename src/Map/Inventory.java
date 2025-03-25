@@ -27,6 +27,10 @@ public class Inventory {
         return notes;
     }
 
+    public HashMap<String, Item> getItems() {
+        return items;
+    }
+
     public String addItem(Item item){
         if(items.size() < capacity){
             if((item instanceof Note)){
@@ -67,7 +71,7 @@ public class Inventory {
 
     public String effect(String name){
         if(items.containsKey(name)){
-            if(items.get(name).getDescription().equals("")){
+            if(items.get(name).getDescription().isEmpty()){
                 return "Item does not have an effect.";
             }else{
                 return items.get(name).getDescription();

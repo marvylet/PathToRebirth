@@ -22,7 +22,7 @@ public class TpPotion extends Item{
 
     @Override
     public boolean grabbable() {
-        return false;
+        return true;
     }
 
     @Override
