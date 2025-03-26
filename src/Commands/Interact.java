@@ -14,6 +14,9 @@ public class Interact extends Command{
 
     @Override
     public String execute() {
+        if(map.interactNeighbours(map.getCurrentLoc()))
+
+
         if(map.getLocations().get(map.getCurrentLoc()).isKeyLocked() || map.getLocations().get(map.getCurrentLoc()).isMoveLocked()) {
 
             if (inv.containsItem("Key")) {

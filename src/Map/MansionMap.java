@@ -24,8 +24,8 @@ public class MansionMap {
         this.inv = inv;
     }
 
-    public boolean spawnRooms(){
-        try{
+    public boolean spawnRooms() {
+        try {
             BufferedReader buff = new BufferedReader(new FileReader("MansionLocations"));
 
             int ID;
@@ -37,7 +37,7 @@ public class MansionMap {
             ArrayList<Item> items;
 
             String line;
-            while((line = buff.readLine()) != null){
+            while ((line = buff.readLine()) != null) {
                 String[] lines = line.split(";");
                 ID = Integer.parseInt(lines[0]);
                 name = lines[1];
@@ -46,7 +46,7 @@ public class MansionMap {
                 items = new ArrayList<>();
 
                 String[] connectedRooms = lines[2].split("-");
-                for(int i = 0; i < connectedRooms.length; i++){
+                for (int i = 0; i < connectedRooms.length; i++) {
                     rooms.add(Integer.parseInt(connectedRooms[i]));
                 }
 
@@ -54,13 +54,13 @@ public class MansionMap {
                 moveLocked = Boolean.parseBoolean(lines[4]);
 
                 String[] characters = lines[5].split("-");
-                for(int i = 0; i < characters.length; i++){
+                for (int i = 0; i < characters.length; i++) {
                     Characters.Character character = Character.factory(characters[i]);
                     people.add(character);
                 }
 
                 String[] item = lines[6].split("-");
-                for(int i = 0; i < item.length; i++){
+                for (int i = 0; i < item.length; i++) {
                     Items.Item it = Item.factory(item[i]);
                     items.add(it);
                 }
@@ -73,7 +73,7 @@ public class MansionMap {
 
             return true;
 
-        }catch(IOException e){
+        } catch (IOException e) {
             return false;
         }
     }
@@ -102,24 +102,36 @@ public class MansionMap {
         this.startingLoc = startingLoc;
     }
 
-    public boolean moveToLocation(int ID){
-        if(locations.get(currentLoc).getConnectedRooms().contains(ID)){
+    public boolean interactNeighbours(int loc){
+        for(int i = 0; i < locations.size(); i++){
+            if(locations.get(locations.get(loc).getConnectedRooms().get(i)).isKeyLocked() || locations.get(locations.get(loc).getConnectedRooms().get(i)).isMoveLocked()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean moveToLocation(int ID) {
+        if(locations.get(ID).isMoveLocked() || locations.get(ID).isKeyLocked()){
+            return false;
+        }
+
+        if (locations.get(currentLoc).getConnectedRooms().contains(ID)) {
             currentLoc = ID;
             return true;
         }
         return false;
     }
 
-    public Location currentRoom(){
+    public Location currentRoom() {
         return locations.get(currentLoc);
     }
 
-    public String locationNames(){
+    public String locationNames() {
         ArrayList<Integer> locationss = locations.get(currentLoc).getConnectedRooms();
-        ArrayList<String> locationNames = new ArrayList<>();
         String text = "";
 
-        for(int i = 0; i < locationss.size(); i++){
+        for (int i = 0; i < locationss.size(); i++) {
             text += "\n   " + locations.get(locationss.get(i)).getID() + " " + locations.get(locationss.get(i)).getName();
         }
 

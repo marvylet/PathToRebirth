@@ -32,17 +32,21 @@ public class Inventory {
     }
 
     public String addItem(Item item){
-        if(items.size() < capacity){
-            if((item instanceof Note)){
-                notes.add(item);
-                noteNames.add(item.getName());
-                return "Note successfully added.";
+        try {
+            if (items.size() < capacity) {
+                if ((item instanceof Note)) {
+                    notes.add(item);
+                    noteNames.add(item.getName());
+                    return "Note successfully added.";
 
-            }else if(item.grabbable()){
-                items.put(item.getName(), item);
-                itemNames.add(item.getName());
-                return "Item successfully added";
+                } else if (item.grabbable()) {
+                    items.put(item.getName(), item);
+                    itemNames.add(item.getName());
+                    return "Item successfully added";
+                }
             }
+        } catch (Exception e) {
+            return "Invalid item.";
         }
         return "Item is not grabbable";
     }

@@ -24,10 +24,14 @@ public class GoTo extends Command{
             System.out.println("You can move to " + map.locationNames());
             String room = sc.next();
 
-            if (map.moveToLocation(Integer.parseInt(room))) {
-                return "Moved to room.";
-            } else {
-                return "Couldn't move to room.";
+            try {
+                if (map.moveToLocation(Integer.parseInt(room))) {
+                    return "Moved to room.";
+                } else {
+                    return "Couldn't move to room.";
+                }
+            }catch (Exception e){
+                return "Invalid input.";
             }
         }
     }
