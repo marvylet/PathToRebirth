@@ -1,5 +1,6 @@
 package Commands;
 
+import Items.Item;
 import Map.Inventory;
 import Map.MansionMap;
 
@@ -26,13 +27,15 @@ public class Use extends Command {
         } else {
             System.out.println("Your inventory:" + inv.viewInventory());
             String item = sc.next();
+            String pot = "";
 
             if (item.equals("TpPotion") && inv.containsItem("TpPotion")) {
                 map.setCurrentLoc(rd.nextInt(20) + 1);
+                pot = inv.effect("TpPotion");
                 inv.removeItem("TpPotion");
             }
 
-            return inv.effect(item);
+            return pot;
         }
     }
 

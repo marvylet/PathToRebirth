@@ -10,14 +10,12 @@ import java.util.HashMap;
 public class Inventory {
     private int capacity;
     private HashMap<String, Item> items;
-    private ArrayList<String> itemNames;
     private ArrayList<Item> notes;
     private ArrayList<String> noteNames;
 
     public Inventory() {
         capacity = 5;
         items = new HashMap<>();
-        itemNames = new ArrayList<>();
         notes = new ArrayList<>();
         noteNames = new ArrayList<>();
         items.put("Lantern", new Lantern("Lantern"));
@@ -41,7 +39,6 @@ public class Inventory {
 
                 } else if (item.grabbable()) {
                     items.put(item.getName(), item);
-                    itemNames.add(item.getName());
                     return "Item successfully added";
                 }
             }
@@ -67,9 +64,13 @@ public class Inventory {
 
     public boolean removeItem(String name){
         if(items.containsKey(name)){
+
             items.remove(name);
+
+            System.out.println("TRUE");
             return true;
         }
+        System.out.println("FALSE");
         return false;
     }
 
@@ -103,8 +104,8 @@ public class Inventory {
 
     public String viewInventory(){
         String inventory = "";
-        for(int i = 0; i < itemNames.size(); i++){
-            inventory += "  " + itemNames.get(i) + "\n";
+        for(String item : items.keySet()){
+            inventory += "  " + items.get(item).getName() + "\n";
         }
         return inventory;
     }

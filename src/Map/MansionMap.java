@@ -102,13 +102,28 @@ public class MansionMap {
         this.startingLoc = startingLoc;
     }
 
-    public boolean interactNeighbours(int loc){
-        for(int i = 0; i < locations.size(); i++){
-            if(locations.get(locations.get(loc).getConnectedRooms().get(i)).isKeyLocked() || locations.get(locations.get(loc).getConnectedRooms().get(i)).isMoveLocked()){
+    public boolean interactNeighbours(){
+        for(int i = 0; i < locations.get(currentLoc).getConnectedRooms().size(); i++){
+            if(locations.get(locations.get(currentLoc).getConnectedRooms().get(i)).isKeyLocked()){
                 return true;
             }
         }
         return false;
+    }
+
+    public String listLockedNeighbours(){
+        ArrayList<Integer> locationss = locations.get(currentLoc).getConnectedRooms();
+        String s = "";
+
+        for(int i = 0; i < locations.get(currentLoc).getConnectedRooms().size(); i++){
+            if(locations.get(locations.get(currentLoc).getConnectedRooms().get(i)).isKeyLocked()){
+                s += "\n   " + locations.get(locationss.get(i)).getID() + " " + locations.get(locationss.get(i)).getName();
+            }
+        }
+        if(s.isEmpty()){
+            return "No rooms locked";
+        }
+        return s;
     }
 
     public boolean moveToLocation(int ID) {
