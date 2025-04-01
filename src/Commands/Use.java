@@ -7,6 +7,9 @@ import Map.MansionMap;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * A command used for when player wants to use an item
+ */
 public class Use extends Command {
     private Scanner sc;
     private Inventory inv;
@@ -20,6 +23,11 @@ public class Use extends Command {
         rd = new Random();
     }
 
+    /**
+     * If there are no items in inventory, notifies the player.
+     * Views inventory and lets player choose, if its a teleportation potion, applies its effect.
+     * @return - returns the effect of the item used or if it doesn't have one.
+     */
     @Override
     public String execute() {
         if (inv.getItems().isEmpty()) {

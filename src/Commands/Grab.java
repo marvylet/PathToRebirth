@@ -7,6 +7,9 @@ import Map.MansionMap;
 
 import java.util.Scanner;
 
+/**
+ * A command which is used for when the player wants to pick up an item
+ */
 public class Grab extends Command{
     private Inventory inv;
     private Item item;
@@ -19,8 +22,11 @@ public class Grab extends Command{
         this.sc = new Scanner(System.in);
     }
 
-    //searched up "instanceof" on https://stackoverflow.com/questions/541749/how-to-determine-an-objects-class
-    //as I have forgotten how exactly we wrote it
+    /**
+     * If there's no items in the room, tells the player
+     * Afterwards lists the available items and gives player the option to choose
+     * @return - returns either if the item was successfully added or if something went wrong
+     */
     @Override
     public String execute() {
         if(map.getLocations().get(map.getCurrentLoc()).getItems() == null){

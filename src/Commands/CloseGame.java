@@ -2,9 +2,16 @@ package Commands;
 
 import java.util.Scanner;
 
+/**
+ * A command which works for when the player wants to close the game.
+ */
 public class CloseGame extends Command {
     private boolean exit;
 
+    /**
+     * A method which asks the player if they really want to exit, afterwards lets them choose if yes, or no.
+     * @return - returns either confirmation of exiting or failure to answer depending on the player's option.
+     */
     @Override
     public String execute() {
         Scanner sc = new Scanner(System.in);
@@ -20,6 +27,10 @@ public class CloseGame extends Command {
         }
     }
 
+    /**
+     *
+     * @return - returns the exit value depending on what the player chose in execute
+     */
     @Override
     public boolean exit() {
         return exit;

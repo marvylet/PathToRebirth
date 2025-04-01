@@ -5,6 +5,9 @@ import Characters.Character;
 
 import java.util.Scanner;
 
+/**
+ * A command which is used when the player wants to talk to a character
+ */
 public class TalkTo extends Command {
     private Scanner sc;
     private MansionMap map;
@@ -14,6 +17,11 @@ public class TalkTo extends Command {
         sc = new Scanner(System.in);
     }
 
+    /**
+     * Method used for talking to characters. At first lists all characters in the room.
+     * Afterwards lets the player choose and then returns the dialogue
+     * @return - returns the character's dialogue if everything went right, otherwise returns that there isn't anyone or invalid input
+     */
     @Override
     public String execute() {
         try {

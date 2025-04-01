@@ -4,6 +4,9 @@ import Map.MansionMap;
 
 import java.util.Scanner;
 
+/**
+ * A command which works for when the player wants to move from one room to another.
+ */
 public class GoTo extends Command{
 
     private MansionMap map;
@@ -14,6 +17,11 @@ public class GoTo extends Command{
         sc = new Scanner(System.in);
     }
 
+    /**
+     * At first tells the player if the room is locked or not.
+     * Afterwards lists the neighbouring rooms the player can travel to and lets them choose.
+     * @return - returns either confirmation about locked door, or if the player was able to move to the room or not. Returns invalid input if an exception happens
+     */
     @Override
     public String execute() {
 

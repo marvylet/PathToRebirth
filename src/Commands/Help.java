@@ -1,6 +1,13 @@
 package Commands;
 
+/**
+ * A command which is used for when the player doesn't remember the commands.
+ */
 public class Help extends Command{
+    /**
+     * Lists all available commands
+     * @return - returns the commands which the player can choose afterwards
+     */
     @Override
     public String execute() {
         return """

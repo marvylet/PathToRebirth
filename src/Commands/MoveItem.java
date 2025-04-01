@@ -5,6 +5,9 @@ import Map.*;
 
 import java.util.Scanner;
 
+/**
+ * A command which is used when player wants to move an item
+ */
 public class MoveItem extends Command {
     private Inventory inv;
     private MansionMap map;
@@ -16,6 +19,11 @@ public class MoveItem extends Command {
         this.sc = new Scanner(System.in);
     }
 
+    /**
+     * Checks if there are any items at all.
+     * Afterwards if the room is locked, lists all available items and lets player choose which to move (if able to)
+     * @return - returns if the item was moved or if the player isn't able to move that one
+     */
     @Override
     public String execute() {
         if (map.getLocations().get(map.getCurrentLoc()).getItems() == null) {
