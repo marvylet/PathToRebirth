@@ -27,6 +27,14 @@ public class CloseGame extends Command {
         }
     }
 
+    public boolean isExit() {
+        return exit;
+    }
+
+    public void setExit(boolean exit) {
+        this.exit = exit;
+    }
+
     /**
      *
      * @return - returns the exit value depending on what the player chose in execute

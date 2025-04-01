@@ -29,15 +29,15 @@ public class Grab extends Command{
      */
     @Override
     public String execute() {
-        if(map.getLocations().get(map.getCurrentLoc()).getItems() == null){
+        try {
+            System.out.println("Items in this room:");
+            System.out.print(map.getLocations().get(map.getCurrentLoc()).viewItems());
+            String s = sc.next();
+
+            return inv.addItem(map.getLocations().get(map.getCurrentLoc()).findItem(s));
+        } catch (Exception e) {
             return "No items";
         }
-        System.out.println("Items in this room:");
-        System.out.print(map.getLocations().get(map.getCurrentLoc()).viewItems());
-        String s = sc.next();
-
-        return inv.addItem(map.getLocations().get(map.getCurrentLoc()).findItem(s));
-
     }
 
     @Override
