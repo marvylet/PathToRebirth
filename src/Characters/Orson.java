@@ -6,7 +6,10 @@ public class Orson extends Character {
         this.relation = -2;
         loadDialogue("OrsonDialogue");
     }
-
+    /**
+     * A method which returns dialogue from a switch depending on how many times the player talks to them.
+     * @return - returns String value of specific dialogue
+     */
     @Override
     public String getDialogue() {
         switch (index) {

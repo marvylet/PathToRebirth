@@ -5,6 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * An abstract class that works for creating characters
+ */
 public abstract class Character {
     protected String name;
     protected ArrayList<Integer> rooms;
@@ -20,6 +23,11 @@ public abstract class Character {
         index = 0;
     }
 
+    /**
+     * A method for importing dialogue from a file to an ArrayList
+     * @param file - the file which the method imports the dialogue from
+     * @return - returns true if nothing went wrong, false if an exception happened
+     */
     public boolean loadDialogue(String file){
         try {
             BufferedReader buff = new BufferedReader(new FileReader(file));
@@ -86,8 +94,12 @@ public abstract class Character {
         this.charID = charID;
     }
 
-    //Looked up about factory in https://refactoring.guru/design-patterns/factory-method
-    //Rewrote it in a switch instead of if else
+    /**
+     * A factory method which is used in MansionMap when adding characters from a file in a room
+     * Looked up about factory in https://refactoring.guru/design-patterns/factory-method
+     * @param charName - the character's name, based on it creates a new character
+     * @return - returns a switch which creates a new character depending on charName
+     */
     public static Character factory(String charName){
         return switch(charName){
             case "Aiysha" -> new Aiysha(charName);
