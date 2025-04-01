@@ -24,6 +24,10 @@ public class MansionMap {
         this.inv = inv;
     }
 
+    /**
+     * Method for spawning rooms and all their information from designated file.
+     * @return - true if everything loaded correctly, false if something went wrong
+     */
     public boolean spawnRooms() {
         try {
             BufferedReader buff = new BufferedReader(new FileReader("MansionLocations"));
@@ -102,6 +106,10 @@ public class MansionMap {
         this.startingLoc = startingLoc;
     }
 
+    /**
+     * Finds out if any of the neighbouring rooms are locked with a key.
+     * @return - true if any of them are locked, false if otherwise
+     */
     public boolean interactNeighbours(){
         for(int i = 0; i < locations.get(currentLoc).getConnectedRooms().size(); i++){
             if(locations.get(locations.get(currentLoc).getConnectedRooms().get(i)).isKeyLocked()){
@@ -111,6 +119,10 @@ public class MansionMap {
         return false;
     }
 
+    /**
+     * Used for listing all the connected rooms that are locked.
+     * @return - List of rooms, or information about there being no locked rooms
+     */
     public String listLockedNeighbours(){
         ArrayList<Integer> locationss = locations.get(currentLoc).getConnectedRooms();
         String s = "";
@@ -126,6 +138,11 @@ public class MansionMap {
         return s;
     }
 
+    /**
+     * Used for moving to different rooms.
+     * @param ID - id of room the player wants to move to
+     * @return - true if moved to room successfuly, false if something went wrong or door is locked
+     */
     public boolean moveToLocation(int ID) {
         if(locations.get(ID).isMoveLocked() || locations.get(ID).isKeyLocked()){
             return false;
@@ -142,6 +159,10 @@ public class MansionMap {
         return locations.get(currentLoc);
     }
 
+    /**
+     * Used for listing all the connected rooms
+     * @return - returns list of connected rooms the player can move to
+     */
     public String locationNames() {
         ArrayList<Integer> locationss = locations.get(currentLoc).getConnectedRooms();
         String text = "";

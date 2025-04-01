@@ -6,6 +6,9 @@ import Map.MansionMap;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Class used for inicializing whole game and making it function
+ */
 public class Console {
     private boolean exit = false;
     private HashMap<String, Command> commands;
@@ -20,6 +23,9 @@ public class Console {
         start();
     }
 
+    /**
+     * Adds all commands to HashMap
+     */
     private void inicialize() {
         commands = new HashMap<>();
         sc = new Scanner(System.in);
@@ -37,6 +43,9 @@ public class Console {
 
     }
 
+    /**
+     * Lists current room, lets the player choose a command and afterwards does it's execute command. Checks for the value of exit method
+     */
     private void doCommand() {
         System.out.println("You are currently in " + map.getLocations().get(map.getCurrentLoc()).getName() + "\nWhat would you like to do?");
         System.out.print("> ");
@@ -49,6 +58,10 @@ public class Console {
         }
     }
 
+    /**
+     * Inicializes game, writes intro and then does a do while loop which continues until exit value is true.
+     * If the player completed the objective and found all notes, they get a special dialogue and can choose their ending. Afterwards ends the game.
+     */
     public void start() {
 
         inicialize();
@@ -112,6 +125,11 @@ public class Console {
 
         }while(!exit);
     }
+
+    /**
+     * Checks if all notes were found
+     * @return - returns true if player has all notes, false if not
+     */
 
     //Didn't try going through the full game and finding all the keys, but when I changed the number of notes needed and attempted it, it worked.
     public boolean ending() {

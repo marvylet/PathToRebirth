@@ -5,6 +5,9 @@ import Items.Item;
 
 import java.util.ArrayList;
 
+/**
+ * A class used for creating rooms and locations in the game
+ */
 public class Location {
     private int ID;
     private String name;
@@ -74,6 +77,10 @@ public class Location {
         this.items = items;
     }
 
+    /**
+     * Used for listing all the characters in the room
+     * @return - returns list of the characters' names that are currently in the room
+     */
     public String viewChararacters(){
         String s = "";
         for(int i = 0; i < characters.size(); i++){
@@ -82,6 +89,10 @@ public class Location {
         return s;
     }
 
+    /**
+     * Used for listing all the items in the room
+     * @return - returns list of all the items' names that are currently in the room
+     */
     public String viewItems(){
         String s = "";
         for(int i = 0; i < items.size(); i++){
@@ -90,6 +101,12 @@ public class Location {
         return s;
     }
 
+    /**
+     * Used for finding out if the item is in the room, afterwards removing it
+     * Used in grab command
+     * @param name - name of the item we're trying to find out if its in the room
+     * @return - returns the item that's in there or null if it isn't
+     */
     public Item findItem(String name){
         Item item = null;
         for(int i = 0; i < items.size(); i++){
@@ -104,12 +121,22 @@ public class Location {
         return null;
     }
 
+    /**
+     * Used for unlocking a door in Interact command, makes the boolean false, making the room unlocked
+     * @return - returns information about the room being unlocked
+     */
     public String unlockDoor(){
         setKeyLocked(false);
         inv.removeItem("Key");
         return "Door unlocked.";
     }
 
+    /**
+     * Used for moving an item in Move command.
+     * Checks if specific item is moveable, if it is then unlocks the room.
+     * @param item - item that it checks if its moveable
+     * @return - returns confirmation about item being moved or information about it not being moveable
+     */
     public String moveItem(Item item){
         if(item.moveable()){
             setMoveLocked(false);
@@ -118,7 +145,12 @@ public class Location {
         return "Couldn't move item.";
     }
 
-
+    /**
+     * Used for talking to characters in Talk command.
+     * checks whole list if the character is in the room, if yes gets their dialogue
+     * @param charName - character its checking for it's dialogue
+     * @return - returns character's dialogue or information about the character not being there
+     */
     public String talkToChar(String charName){
         for(int i = 0; i < characters.size(); i++){
             if(characters.get(i).getName().equals(charName)){
