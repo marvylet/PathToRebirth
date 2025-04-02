@@ -4,7 +4,7 @@ public class Taylor extends Character{
     public Taylor(String name) {
         super(name);
         this.relation = -1;
-        loadDialogue("TaylorDialogue");
+        loadDialogue("src/Files/TaylorDialogue");
     }
     /**
      * A method which returns dialogue from a switch depending on how many times the player talks to them.

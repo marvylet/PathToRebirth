@@ -4,7 +4,7 @@ public class Ezra extends Character {
     public Ezra(String name) {
         super(name);
         this.relation = -1;
-        loadDialogue("EzraDialogue");
+        loadDialogue("src/Files/EzraDialogue");
     }
     /**
      * A method which returns dialogue from a switch depending on how many times the player talks to them.

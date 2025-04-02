@@ -3,7 +3,7 @@ package Characters;
 public class Aiysha extends Character {
     public Aiysha(String name) {
         super(name);
-        loadDialogue("AiyshaDialogue");
+        loadDialogue("src/Files/AiyshaDialogue");
     }
 
     /**

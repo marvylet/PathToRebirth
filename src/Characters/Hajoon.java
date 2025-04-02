@@ -9,7 +9,7 @@ public class Hajoon extends Character {
         super(name);
         sc = new Scanner(System.in);
         this.relation = 1;
-        loadDialogue("HajoonDialogue");
+        loadDialogue("src/Files/HajoonDialogue");
     }
     /**
      * A method which returns dialogue from a switch depending on how many times the player talks to them.

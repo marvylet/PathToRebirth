@@ -30,7 +30,7 @@ public class MansionMap {
      */
     public boolean spawnRooms() {
         try {
-            BufferedReader buff = new BufferedReader(new FileReader("MansionLocations"));
+            BufferedReader buff = new BufferedReader(new FileReader("src/Files/MansionLocations"));
 
             int ID;
             String name;
