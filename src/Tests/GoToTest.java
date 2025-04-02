@@ -1,5 +1,6 @@
-package Commands;
+package Tests;
 
+import Commands.GoTo;
 import Map.Inventory;
 import Map.MansionMap;
 

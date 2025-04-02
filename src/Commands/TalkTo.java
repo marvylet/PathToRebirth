@@ -12,9 +12,9 @@ public class TalkTo extends Command {
     private Scanner sc;
     private MansionMap map;
 
-    public TalkTo(MansionMap map) {
+    public TalkTo(MansionMap map, Scanner sc) {
         this.map = map;
-        sc = new Scanner(System.in);
+        this.sc = sc;
     }
 
     /**

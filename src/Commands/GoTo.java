@@ -12,9 +12,9 @@ public class GoTo extends Command{
     private MansionMap map;
     private Scanner sc;
 
-    public GoTo(MansionMap map) {
+    public GoTo(MansionMap map, Scanner sc) {
         this.map = map;
-        sc = new Scanner(System.in);
+        this.sc = sc;
     }
 
     /**

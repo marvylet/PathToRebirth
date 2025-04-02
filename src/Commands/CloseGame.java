@@ -7,6 +7,11 @@ import java.util.Scanner;
  */
 public class CloseGame extends Command {
     private boolean exit;
+    Scanner sc;
+
+    public CloseGame(Scanner sc) {
+        this.sc = sc;
+    }
 
     /**
      * A method which asks the player if they really want to exit, afterwards lets them choose if yes, or no.
@@ -14,7 +19,7 @@ public class CloseGame extends Command {
      */
     @Override
     public String execute() {
-        Scanner sc = new Scanner(System.in);
+
         System.out.println("Are you sure you want to exit?");
         String answer = sc.next();
 

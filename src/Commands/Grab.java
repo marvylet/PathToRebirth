@@ -16,10 +16,10 @@ public class Grab extends Command{
     private MansionMap map;
     private Scanner sc;
 
-    public Grab(Inventory inv, MansionMap map) {
+    public Grab(Inventory inv, MansionMap map, Scanner sc) {
         this.inv = inv;
         this.map = map;
-        this.sc = new Scanner(System.in);
+        this.sc = sc;
     }
 
     /**

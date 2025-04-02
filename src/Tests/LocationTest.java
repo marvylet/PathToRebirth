@@ -1,6 +1,9 @@
-package Map;
+package Tests;
 
 import Items.Key;
+import Map.Inventory;
+import Map.Location;
+import Map.MansionMap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

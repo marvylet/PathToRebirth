@@ -30,15 +30,15 @@ public class Console {
         commands = new HashMap<>();
         sc = new Scanner(System.in);
 
-        commands.put("go", new GoTo(map));
-        commands.put("grab", new Grab(inv, map));
-        commands.put("interact", new Interact(inv, map));
-        commands.put("move", new MoveItem(inv, map));
+        commands.put("go", new GoTo(map, sc));
+        commands.put("grab", new Grab(inv, map, sc));
+        commands.put("interact", new Interact(inv, map, sc));
+        commands.put("move", new MoveItem(inv, map, sc));
         commands.put("diary", new OpenDiary(inv));
         commands.put("inventory", new OpenInventory(inv));
-        commands.put("talk", new TalkTo(map));
-        commands.put("use", new Use(inv, map));
-        commands.put("exit", new CloseGame());
+        commands.put("talk", new TalkTo(map, sc));
+        commands.put("use", new Use(inv, map, sc));
+        commands.put("exit", new CloseGame(sc));
         commands.put("help", new Help());
 
     }

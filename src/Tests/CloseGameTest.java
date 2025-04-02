@@ -1,7 +1,6 @@
-package Commands;
+package Tests;
 
-import Map.Inventory;
-import Map.MansionMap;
+import Commands.CloseGame;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

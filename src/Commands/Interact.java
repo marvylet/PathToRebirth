@@ -13,10 +13,10 @@ public class Interact extends Command {
     private MansionMap map;
     private Scanner sc;
 
-    public Interact(Inventory inv, MansionMap map) {
+    public Interact(Inventory inv, MansionMap map, Scanner sc) {
         this.inv = inv;
         this.map = map;
-        sc = new Scanner(System.in);
+        this.sc = sc;
     }
 
     /**

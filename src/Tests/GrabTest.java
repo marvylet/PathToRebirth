@@ -1,19 +1,23 @@
-package Commands;
+package Tests;
 
+import Commands.Grab;
 import Map.Inventory;
 import Map.MansionMap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TalkToTest {
+class GrabTest {
     Inventory inv = new Inventory();
     MansionMap map = new MansionMap(inv);
-    TalkTo t = new TalkTo(map);
+    Grab grab = new Grab(inv, map);
 
     @Test
     void execute() {
         map.spawnRooms();
-        assertEquals("Nobody to talk to.", t.execute());
+
+
+        map.getLocations().get(map.getCurrentLoc()).setItems(null);
+        assertEquals("No items", grab.execute());
     }
 }
