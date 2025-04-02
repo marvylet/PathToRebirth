@@ -81,7 +81,7 @@ public class Location {
      * Used for listing all the characters in the room
      * @return - returns list of the characters' names that are currently in the room
      */
-    public String viewChararacters(){
+    public String viewCharacters(){
         String s = "";
         for(int i = 0; i < characters.size(); i++){
             s += characters.get(i).getName() + "\n";
@@ -104,7 +104,7 @@ public class Location {
     /**
      * Used for finding out if the item is in the room, afterwards removing it
      * Used in grab command
-     * @param name - name of the item we're trying to find out if its in the room
+     * @param name - name of the item we're trying to find out if it's in the room
      * @return - returns the item that's in there or null if it isn't
      */
     public Item findItem(String name){

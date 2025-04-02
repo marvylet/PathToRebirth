@@ -20,7 +20,7 @@ public class Interact extends Command {
     }
 
     /**
-     * If atleast one of the connected rooms is locked, lists all the rooms which they can unlock. Afterwards checks if the player has a key and unlocks the door.
+     * If at least one of the connected rooms is locked, lists all the rooms which they can unlock. Afterwards checks if the player has a key and unlocks the door.
      * if instead the room the player is currently in is locked, checks if the player has a key and tries to unlock door.
      * @return - returns either if the door was unlocked or if something went wrong (or if player does not have a key)
      */

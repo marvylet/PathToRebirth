@@ -25,7 +25,7 @@ public class TalkTo extends Command {
     @Override
     public String execute() {
         try {
-            System.out.print("You can talk to:\n" + map.getLocations().get(map.getCurrentLoc()).viewChararacters());
+            System.out.print("You can talk to:\n" + map.getLocations().get(map.getCurrentLoc()).viewCharacters());
             String s = sc.next();
 
             return map.getLocations().get(map.getCurrentLoc()).talkToChar(s);

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * Class used for inicializing whole game and making it function
+ * Class used for initializing whole game and making it function
  */
 public class Console {
     private boolean exit = false;
@@ -24,9 +24,9 @@ public class Console {
     }
 
     /**
-     * Adds all commands to HashMap
+     * Adds all commands to HashMap, initializes Scanner
      */
-    private void inicialize() {
+    private void initialize() {
         commands = new HashMap<>();
         sc = new Scanner(System.in);
 
@@ -59,12 +59,12 @@ public class Console {
     }
 
     /**
-     * Inicializes game, writes intro and then does a do while loop which continues until exit value is true.
+     * Initializes game, writes intro and then does a do while loop which continues until exit value is true.
      * If the player completed the objective and found all notes, they get a special dialogue and can choose their ending. Afterwards ends the game.
      */
     public void start() {
 
-        inicialize();
+        initialize();
 
         System.out.println("""
                 You wake up, dizzy, in an unknown room. As you look around, you quite can't seem to remember anything.

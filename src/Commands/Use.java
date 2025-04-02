@@ -25,7 +25,7 @@ public class Use extends Command {
 
     /**
      * If there are no items in inventory, notifies the player.
-     * Views inventory and lets player choose, if its a teleportation potion, applies its effect.
+     * Views inventory and lets player choose, if it's a teleportation potion, applies its effect.
      * @return - returns the effect of the item used or if it doesn't have one.
      */
     @Override

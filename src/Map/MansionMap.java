@@ -142,7 +142,7 @@ public class MansionMap {
     /**
      * Used for moving to different rooms.
      * @param ID - id of room the player wants to move to
-     * @return - true if moved to room successfuly, false if something went wrong or door is locked
+     * @return - true if moved to room successfully, false if something went wrong or door is locked
      */
     public boolean moveToLocation(int ID) {
         if(locations.get(ID).isMoveLocked() || locations.get(ID).isKeyLocked()){

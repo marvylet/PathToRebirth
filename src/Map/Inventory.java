@@ -59,7 +59,7 @@ public class Inventory {
     }
 
     /**
-     * Checks if there's any space left in the inventory depending on its' capacity
+     * Checks if there's any space left in the inventory depending on it's capacity
      * @return - returns true if there's space, false if not
      */
     public boolean freeInv(){
@@ -71,7 +71,7 @@ public class Inventory {
 
     /**
      * Checks if specific item is in the inventory
-     * @param name - name of the item that its checking if its there
+     * @param name - name of the item that its checking if it's there
      * @return - returns true if the item is in inventory, false if not
      */
     public boolean containsItem(String name){
@@ -84,7 +84,7 @@ public class Inventory {
     /**
      * Removes specific item
      * @param name - name of the item its removing
-     * @return - returns true if its been successfully removed, false if otherwise
+     * @return - returns true if it's been successfully removed, false if otherwise
      */
     public boolean removeItem(String name){
         if(items.containsKey(name)){

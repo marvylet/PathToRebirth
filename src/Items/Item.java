@@ -37,7 +37,7 @@ public abstract class Item {
 
     /**
      * Abstract method which tells if the item has an effect or not
-     * @return - true if has an effect, otherwise false
+     * @return - true if item has an effect, otherwise false
      */
     public abstract boolean effect();
 
