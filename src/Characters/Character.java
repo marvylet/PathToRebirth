@@ -37,6 +37,7 @@ public abstract class Character {
                 dialogue.add(line);
             }
 
+            buff.close();
             return true;
         }catch (IOException e){
             return false;

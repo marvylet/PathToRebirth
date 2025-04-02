@@ -12,7 +12,6 @@ import java.util.Scanner;
  */
 public class Grab extends Command{
     private Inventory inv;
-    private Item item;
     private MansionMap map;
     private Scanner sc;
 

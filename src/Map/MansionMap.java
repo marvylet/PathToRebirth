@@ -75,6 +75,7 @@ public class MansionMap {
 
             }
 
+            buff.close();
             return true;
 
         } catch (IOException e) {
