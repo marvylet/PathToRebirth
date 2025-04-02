@@ -3,10 +3,13 @@ package Tests;
 import Commands.CloseGame;
 import org.junit.jupiter.api.Test;
 
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CloseGameTest {
-    CloseGame closeGame = new CloseGame();
+    Scanner sc = new Scanner(System.in);
+    CloseGame closeGame = new CloseGame(sc);
 
     @Test
     void execute() {

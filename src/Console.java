@@ -124,6 +124,7 @@ public class Console {
             }
 
         }while(!exit);
+        sc.close();
     }
 
     /**
