@@ -4,7 +4,7 @@ public class Orson extends Character {
     public Orson(String name) {
         super(name);
         this.relation = -2;
-        loadDialogue("src/Files/OrsonDialogue");
+        loadDialogue("Resources/OrsonDialogue");
     }
     /**
      * A method which returns dialogue from a switch depending on how many times the player talks to them.
