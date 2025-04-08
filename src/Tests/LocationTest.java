@@ -26,7 +26,7 @@ class LocationTest {
     void moveItem() {
         map.spawnRooms();
         loc = map.getLocations().get(14);
-        Statue statue = new Statue("Statue");
+        Statue statue = new Statue("Statue", 14);
         assertEquals("Item successfully moved!", loc.moveItem(statue));
 
     }

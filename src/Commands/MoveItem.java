@@ -26,20 +26,23 @@ public class MoveItem extends Command {
      */
     @Override
     public String execute() {
-        if (map.getLocations().get(map.getCurrentLoc()).getItems() == null) {
-            return "No items";
-        }
-
-        if (map.getLocations().get(map.getCurrentLoc()).isMoveLocked()) {
-
+        try {
             System.out.println("Items in this room:");
             System.out.print(map.getLocations().get(map.getCurrentLoc()).viewItems());
-            String s = sc.next();
+            String option = sc.next();
+            if (map.interactNeighboursMoveLoc()) {
 
-            return map.getLocations().get(map.getCurrentLoc()).moveItem(map.getLocations().get(map.getCurrentLoc()).findItem(s));
+                return map.moveItemNeighbour(map.getLocations().get(map.getCurrentLoc()).findItem(option));
 
+            } else if (map.getLocations().get(map.getCurrentLoc()).isMoveLocked()) {
+
+                return map.getLocations().get(map.getCurrentLoc()).moveItem(map.getLocations().get(map.getCurrentLoc()).findItem(option));
+            }
+            return "Failed to move item";
+
+        }catch (Exception e){
+            return "Something went wrong";
         }
-        return "Wasn't able to move item.";
     }
 
     @Override

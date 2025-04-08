@@ -27,9 +27,9 @@ public class Interact extends Command {
     @Override
     public String execute() {
 
-        if (map.interactNeighbours()) {
+        if (map.interactNeighboursKeyLoc()) {
             try {
-                System.out.println("You can unlock:" + map.listLockedNeighbours());
+                System.out.println("You can unlock:" + map.listKeyLockedNeighbours());
                 String option = sc.next();
                 if (inv.containsItem("Key")) {
                     return map.getLocations().get(Integer.parseInt(option)).unlockDoor();
@@ -39,7 +39,7 @@ public class Interact extends Command {
             } catch (Exception e) {
                 return "Invalid input";
             }
-        } else if (map.getLocations().get(map.getCurrentLoc()).isKeyLocked() || map.getLocations().get(map.getCurrentLoc()).isMoveLocked()) {
+        } else if (map.getLocations().get(map.getCurrentLoc()).isKeyLocked()) {
 
             if (inv.containsItem("Key")) {
                 return map.getLocations().get(map.getCurrentLoc()).unlockDoor();

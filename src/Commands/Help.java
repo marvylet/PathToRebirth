@@ -20,6 +20,7 @@ public class Help extends Command{
                     inventory - opens your inventory
                     talk - allows you to talk to someone if anyone is in the room
                     use - allows you to use a potion if you have any
+                    drop - leave your lantern in the room
                     exit - allows you to exit and end the game
                 """;
     }

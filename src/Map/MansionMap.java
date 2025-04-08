@@ -111,7 +111,7 @@ public class MansionMap {
      * Finds out if any of the neighbouring rooms are locked with a key.
      * @return - true if any of them are locked, false if otherwise
      */
-    public boolean interactNeighbours(){
+    public boolean interactNeighboursKeyLoc(){
         for(int i = 0; i < locations.get(currentLoc).getConnectedRooms().size(); i++){
             if(locations.get(locations.get(currentLoc).getConnectedRooms().get(i)).isKeyLocked()){
                 return true;
@@ -121,10 +121,23 @@ public class MansionMap {
     }
 
     /**
-     * Used for listing all the connected rooms that are locked.
+     * Finds out if any of the neighbouring rooms are locked and need an item moved.
+     * @return - true if any of them are locked, false if otherwise
+     */
+    public boolean interactNeighboursMoveLoc(){
+        for(int i = 0; i < locations.get(currentLoc).getConnectedRooms().size(); i++){
+            if(locations.get(locations.get(currentLoc).getConnectedRooms().get(i)).isMoveLocked()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Used for listing all the connected rooms that are locked with a key.
      * @return - List of rooms, or information about there being no locked rooms
      */
-    public String listLockedNeighbours(){
+    public String listKeyLockedNeighbours(){
         ArrayList<Integer> locationss = locations.get(currentLoc).getConnectedRooms();
         String s = "";
 
@@ -137,6 +150,40 @@ public class MansionMap {
             return "No rooms locked";
         }
         return s;
+    }
+
+    public String moveItemNeighbour(Item item){
+        try {
+            boolean confirm = false;
+            for (int i = 0; i < locations.get(currentLoc).getItems().size(); i++) {
+                if (locations.get(currentLoc).getItems().get(i).getName().equals(item.getName())) {
+                    if (item.moveable() && item.getName().equals(locations.get(currentLoc).getItems().get(i).getName())) {
+                        confirm = true;
+                    }
+                }
+            }
+            if(confirm){
+                for(int i = 0; i < locations.get(currentLoc).getConnectedRooms().size(); i++){
+                    if(locations.get(locations.get(currentLoc).getConnectedRooms().get(i)).isMoveLocked()){
+                        locations.get(locations.get(currentLoc).getConnectedRooms().get(i)).setMoveLocked(false);
+                    }
+                }
+                return "Moved item and unlocked rooms.";
+            }
+
+            return "Couldn't move item";
+        }catch (Exception e){
+            return "Something went wrong.";
+        }
+
+            /*
+            for(int i = 0; i < connectedRooms.size(); i++){}
+            return "Couldn't move item.";
+        }catch (Exception e){
+            return "Something went wrong.";
+        }
+
+             */
     }
 
     /**

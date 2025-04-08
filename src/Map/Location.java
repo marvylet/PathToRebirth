@@ -107,13 +107,32 @@ public class Location {
      * @param name - name of the item we're trying to find out if it's in the room
      * @return - returns the item that's in there or null if it isn't
      */
-    public Item findItem(String name){
+    public Item findAndRemoveItem(String name){
         Item item = null;
         for(int i = 0; i < items.size(); i++){
             if(items.get(i).getName().equals(name)){
                 if(inv.freeInv()){
                     item = items.get(i);
                     items.remove(items.get(i));
+                }
+                return item;
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * A method used for finding out if the item is in the room.
+     * @param name - name of the item the player wants find
+     * @return - returns either the item or null if it isn't there
+     */
+    public Item findItem(String name){
+        Item item = null;
+        for(int i = 0; i < items.size(); i++){
+            if(items.get(i).getName().equals(name)){
+                if(inv.freeInv()){
+                    item = items.get(i);
                 }
                 return item;
             }
@@ -138,11 +157,37 @@ public class Location {
      * @return - returns confirmation about item being moved or information about it not being moveable
      */
     public String moveItem(Item item){
-        if(item.moveable()){
-            setMoveLocked(false);
-            return "Item successfully moved!";
+        try {
+            for (int i = 0; i < items.size(); i++) {
+                if (items.get(i).getName().equals(item.getName())) {
+                    if (item.moveable()) {
+                        setMoveLocked(false);
+                        return "Item successfully moved!";
+                    }
+                }
+            }
+            return "Couldn't move item.";
+        }catch (Exception e){
+            return "Something went wrong.";
         }
-        return "Couldn't move item.";
+    }
+
+    private String moveItemNeighbouring(Item item){
+        try {
+            boolean confirm = false;
+            for (int i = 0; i < items.size(); i++) {
+                if (items.get(i).getName().equals(item.getName())) {
+                    if (item.moveable()) {
+                        setMoveLocked(false);
+                        confirm = true;
+                    }
+                }
+            }
+            for(int i = 0; i < connectedRooms.size(); i++){}
+            return "Couldn't move item.";
+        }catch (Exception e){
+            return "Something went wrong.";
+        }
     }
 
     /**
