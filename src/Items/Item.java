@@ -7,11 +7,13 @@ import java.util.ArrayList;
  * An abstract class used for creating items
  */
 public abstract class Item {
-    private String name;
-    private ArrayList<Integer> rooms;
+    protected String name;
+    protected ArrayList<Integer> rooms;
+    protected int id;
 
-    public Item(String name) {
+    public Item(String name, int id) {
         this.name = name;
+        this.id = id;
         rooms = new ArrayList<>();
     }
 
@@ -57,16 +59,16 @@ public abstract class Item {
      * @param itemName - name of the item which is being added
      * @return - returns a switch which creates an item depending on itemName
      */
-    public static Item factory(String itemName){
+    public static Item factory(String itemName, int id){
         return switch(itemName){
-            case "Book" -> new Book(itemName);
-            case "Gift" -> new Gift(itemName);
-            case "Key" -> new Key(itemName);
-            case "Lantern" -> new Lantern(itemName);
-            case "NightVis" -> new NightVisPotion(itemName);
-            case "Note" -> new Note(itemName);
-            case "Statue" -> new Statue(itemName);
-            case "TpPotion" -> new TpPotion(itemName);
+            case "Book" -> new Book(itemName, id);
+            case "Gift" -> new Gift(itemName, id);
+            case "Key" -> new Key(itemName, id);
+            case "Lantern" -> new Lantern(itemName, id);
+            case "NightVis" -> new NightVisPotion(itemName, id);
+            case "Note" -> new Note(itemName, id);
+            case "Statue" -> new Statue(itemName, id);
+            case "TpPotion" -> new TpPotion(itemName, id);
             default -> null;
         };
     }

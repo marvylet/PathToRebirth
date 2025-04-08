@@ -1,8 +1,8 @@
 package Items;
 
 public class NightVisPotion extends Item{
-    public NightVisPotion(String name) {
-        super(name);
+    public NightVisPotion(String name, int id) {
+        super(name, id);
     }
 
     @Override

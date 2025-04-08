@@ -1,8 +1,8 @@
 package Items;
 
 public class Lantern extends Item{
-    public Lantern(String name) {
-        super(name);
+    public Lantern(String name, int id) {
+        super(name, id);
     }
 
     @Override

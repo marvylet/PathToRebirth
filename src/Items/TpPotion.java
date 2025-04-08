@@ -1,8 +1,8 @@
 package Items;
 
 public class TpPotion extends Item{
-    public TpPotion(String name) {
-        super(name);
+    public TpPotion(String name, int id) {
+        super(name, id);
     }
 
     @Override

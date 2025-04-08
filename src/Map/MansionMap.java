@@ -65,7 +65,7 @@ public class MansionMap {
 
                 String[] item = lines[6].split("-");
                 for (int i = 0; i < item.length; i++) {
-                    Items.Item it = Item.factory(item[i]);
+                    Items.Item it = Item.factory(item[i], ID);
                     items.add(it);
                 }
 

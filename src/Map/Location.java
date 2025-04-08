@@ -146,6 +146,20 @@ public class Location {
     }
 
     /**
+     * A method for dropping items from inventory to the current room the player is in.
+     * @param itemName - the name of the item the player wishes to remove from their inventory
+     * @return - either returns confirmation about removal of item, or that something went wrong.
+     */
+    public String removeItem(String itemName){
+        if(inv.containsItem(itemName)){
+            items.add(inv.getItems().get(itemName));
+            inv.removeItem(itemName);
+            return "Item successfully dropped!";
+        }
+        return "Couldn't drop item.";
+    }
+
+    /**
      * Used for talking to characters in Talk command.
      * checks whole list if the character is in the room, if yes gets their dialogue
      * @param charName - character its checking for it's dialogue

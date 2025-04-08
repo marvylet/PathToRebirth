@@ -1,8 +1,8 @@
 package Items;
 
 public class Key extends Item{
-    public Key(String name) {
-        super(name);
+    public Key(String name, int id) {
+        super(name, id);
     }
 
     @Override

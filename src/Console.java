@@ -39,6 +39,7 @@ public class Console {
         commands.put("talk", new TalkTo(map, sc));
         commands.put("use", new Use(inv, map, sc));
         commands.put("exit", new CloseGame(sc));
+        commands.put("drop", new dropLantern(map));
         commands.put("help", new Help());
 
     }

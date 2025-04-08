@@ -1,8 +1,8 @@
 package Items;
 
 public class Gift extends Item{
-    public Gift(String name) {
-        super(name);
+    public Gift(String name, int id) {
+        super(name, id);
     }
 
     @Override

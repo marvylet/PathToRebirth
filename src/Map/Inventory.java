@@ -21,7 +21,7 @@ public class Inventory {
         items = new HashMap<>();
         notes = new ArrayList<>();
         noteNames = new ArrayList<>();
-        items.put("Lantern", new Lantern("Lantern"));
+        items.put("Lantern", new Lantern("Lantern", 1));
     }
 
     public ArrayList<Item> getNotes() {

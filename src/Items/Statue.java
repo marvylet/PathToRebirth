@@ -1,8 +1,8 @@
 package Items;
 
 public class Statue extends Item{
-    public Statue(String name) {
-        super(name);
+    public Statue(String name, int id) {
+        super(name, id);
     }
 
     @Override
