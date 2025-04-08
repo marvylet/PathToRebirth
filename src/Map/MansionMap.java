@@ -39,6 +39,7 @@ public class MansionMap {
             boolean moveLocked;
             ArrayList<Character> people;
             ArrayList<Item> items;
+            boolean light;
 
             String line;
             while ((line = buff.readLine()) != null) {
@@ -69,7 +70,9 @@ public class MansionMap {
                     items.add(it);
                 }
 
-                Location location = new Location(ID, name, rooms, keyLocked, moveLocked, people, items, inv);
+                light = Boolean.parseBoolean(lines[7]);
+
+                Location location = new Location(ID, name, rooms, keyLocked, moveLocked, people, items, inv, light);
 
                 locations.put(ID, location);
 

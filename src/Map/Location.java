@@ -17,8 +17,9 @@ public class Location {
     private boolean keyLocked;
     private boolean moveLocked;
     private Inventory inv;
+    private boolean light;
 
-    public Location(int ID, String name, ArrayList<Integer> connectedRooms, boolean keyLocked, boolean moveLocked, ArrayList<Character> characters, ArrayList<Item> items, Inventory inv) {
+    public Location(int ID, String name, ArrayList<Integer> connectedRooms, boolean keyLocked, boolean moveLocked, ArrayList<Character> characters, ArrayList<Item> items, Inventory inv, boolean light) {
         this.ID = ID;
         this.name = name;
         this.connectedRooms = connectedRooms;
@@ -27,6 +28,7 @@ public class Location {
         this.keyLocked = keyLocked;
         this.moveLocked = moveLocked;
         this.inv = inv;
+        this.light = light;
     }
 
     public boolean isKeyLocked() {
@@ -121,6 +123,24 @@ public class Location {
         return null;
     }
 
+    /**
+     * Checks if there's any light sources in the room. If there aren't, the player can't grab or move items in the room.
+     * @return - returns true if there's a light source, otherwise false
+     */
+    public boolean lightInRoom(){
+        boolean boo = false;
+        for(int i = 0; i < items.size(); i++){
+            if(items.get(i).getName().equals("Lantern")){
+                boo = true;
+            }
+        }
+        if(light || inv.containsItem("Lantern") || boo){
+            return true;
+        }
+
+        return false;
+
+    }
 
     /**
      * A method used for finding out if the item is in the room.

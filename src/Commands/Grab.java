@@ -29,11 +29,14 @@ public class Grab extends Command{
     @Override
     public String execute() {
         try {
-            System.out.println("Items in this room:");
-            System.out.print(map.getLocations().get(map.getCurrentLoc()).viewItems());
-            String s = sc.next();
+            if(map.getLocations().get(map.getCurrentLoc()).lightInRoom()) {
+                System.out.println("Items in this room:");
+                System.out.print(map.getLocations().get(map.getCurrentLoc()).viewItems());
+                String s = sc.next();
 
-            return inv.addItem(map.getLocations().get(map.getCurrentLoc()).findAndRemoveItem(s));
+                return inv.addItem(map.getLocations().get(map.getCurrentLoc()).findAndRemoveItem(s));
+            }
+            return "You can't see anything without a light source.";
         } catch (Exception e) {
             return "No items";
         }

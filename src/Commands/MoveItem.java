@@ -27,19 +27,21 @@ public class MoveItem extends Command {
     @Override
     public String execute() {
         try {
-            System.out.println("Items in this room:");
-            System.out.print(map.getLocations().get(map.getCurrentLoc()).viewItems());
-            String option = sc.next();
-            if (map.interactNeighboursMoveLoc()) {
+            if(map.getLocations().get(map.getCurrentLoc()).lightInRoom()) {
+                System.out.println("Items in this room:");
+                System.out.print(map.getLocations().get(map.getCurrentLoc()).viewItems());
+                String option = sc.next();
+                if (map.interactNeighboursMoveLoc()) {
 
-                return map.moveItemNeighbour(map.getLocations().get(map.getCurrentLoc()).findItem(option));
+                    return map.moveItemNeighbour(map.getLocations().get(map.getCurrentLoc()).findItem(option));
 
-            } else if (map.getLocations().get(map.getCurrentLoc()).isMoveLocked()) {
+                } else if (map.getLocations().get(map.getCurrentLoc()).isMoveLocked()) {
 
-                return map.getLocations().get(map.getCurrentLoc()).moveItem(map.getLocations().get(map.getCurrentLoc()).findItem(option));
+                    return map.getLocations().get(map.getCurrentLoc()).moveItem(map.getLocations().get(map.getCurrentLoc()).findItem(option));
+                }
+                return "Failed to move item";
             }
-            return "Failed to move item";
-
+            return "You can't see anything without a light source.";
         }catch (Exception e){
             return "Something went wrong";
         }
