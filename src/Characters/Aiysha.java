@@ -88,8 +88,9 @@ public class Aiysha extends Character {
                     return dialogue.get(6);
                 }
                 return "You don't have anything to give.";
+            default:
+                return dialogue.get(10);
         }
-        return "";
     }
 
     /**
@@ -108,9 +109,6 @@ public class Aiysha extends Character {
                 return dialogue.get(1);
 
             case 2:
-                index++;
-                return dialogue.get(2);
-            case 3:
                 relation--;
                 return dialogue.get(2);
         }
