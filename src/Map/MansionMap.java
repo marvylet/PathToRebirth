@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class MansionMap {
     private HashMap<Integer, Location> locations;
@@ -15,13 +16,15 @@ public class MansionMap {
     private int currentLoc;
     private boolean lockedDoor;
     private Inventory inv;
+    private Scanner sc;
 
-    public MansionMap(Inventory inv) {
+    public MansionMap(Inventory inv, Scanner sc) {
         this.locations = new HashMap<>();
         this.startingLoc = 1;
         this.currentLoc = startingLoc;
         this.lockedDoor = true;
         this.inv = inv;
+        this.sc = sc;
     }
 
     /**
@@ -60,7 +63,7 @@ public class MansionMap {
 
                 String[] characters = lines[5].split("-");
                 for (int i = 0; i < characters.length; i++) {
-                    Characters.Character character = Character.factory(characters[i]);
+                    Characters.Character character = Character.factory(characters[i], inv, sc);
                     people.add(character);
                 }
 

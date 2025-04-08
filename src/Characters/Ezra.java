@@ -1,8 +1,12 @@
 package Characters;
 
+import Map.Inventory;
+
+import java.util.Scanner;
+
 public class Ezra extends Character {
-    public Ezra(String name) {
-        super(name);
+    public Ezra(String name, Inventory inv, Scanner sc) {
+        super(name, inv, sc);
         this.relation = -1;
         loadDialogue("Resources/EzraDialogue");
     }

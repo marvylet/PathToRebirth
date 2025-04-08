@@ -1,13 +1,13 @@
 package Characters;
 
+import Map.Inventory;
+
 import java.util.Scanner;
 
 public class Hajoon extends Character {
-    private Scanner sc;
 
-    public Hajoon(String name) {
-        super(name);
-        sc = new Scanner(System.in);
+    public Hajoon(String name, Inventory inv, Scanner sc) {
+        super(name, inv, sc);
         this.relation = 1;
         loadDialogue("Resources/HajoonDialogue");
     }

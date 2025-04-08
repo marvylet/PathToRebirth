@@ -1,8 +1,12 @@
 package Characters;
 
+import Map.Inventory;
+
+import java.util.Scanner;
+
 public class Taylor extends Character{
-    public Taylor(String name) {
-        super(name);
+    public Taylor(String name, Inventory inv, Scanner sc) {
+        super(name, inv, sc);
         this.relation = -1;
         loadDialogue("Resources/TaylorDialogue");
     }

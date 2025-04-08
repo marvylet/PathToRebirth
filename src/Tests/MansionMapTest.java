@@ -20,7 +20,7 @@ class MansionMapTest {
     @Test
     void interactNeighbours() {
         map.spawnRooms();
-        assertEquals(false, map.interactNeighbours());
+        assertEquals(false, map.interactNeighboursKeyLoc());
     }
 
     @Test

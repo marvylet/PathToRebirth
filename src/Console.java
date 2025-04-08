@@ -18,7 +18,7 @@ public class Console {
 
     public Console() {
         inv = new Inventory();
-        map = new MansionMap(inv);
+        map = new MansionMap(inv, sc);
         map.spawnRooms();
         start();
     }

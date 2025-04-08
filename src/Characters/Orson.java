@@ -1,8 +1,12 @@
 package Characters;
 
+import Map.Inventory;
+
+import java.util.Scanner;
+
 public class Orson extends Character {
-    public Orson(String name) {
-        super(name);
+    public Orson(String name, Inventory inv, Scanner sc) {
+        super(name, inv, sc);
         this.relation = -2;
         loadDialogue("Resources/OrsonDialogue");
     }
