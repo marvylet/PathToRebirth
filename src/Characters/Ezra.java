@@ -10,8 +10,9 @@ public class Ezra extends Character {
         this.relation = -1;
         loadDialogue("Resources/EzraDialogue");
     }
+
     /**
-     * A method which returns dialogue from a switch depending on how many times the player talks to them.
+     * A method which returns dialogue from a switch depending on the relationship to the character.
      * @return - returns String value of specific dialogue
      */
     @Override
@@ -20,7 +21,7 @@ public class Ezra extends Character {
             return positiveDialogue();
         } else if (relation <= -2) {
             return negativeDialogue();
-        } else if (inv.getNotes().size() >= 2) {
+        } else if (inv.getNotes().size() >= 3) {
             return insultOrComplimentDialogue();
         }
         return neutralDialogue();
