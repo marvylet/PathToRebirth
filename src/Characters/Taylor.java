@@ -43,13 +43,12 @@ public class Taylor extends Character {
      * @return - returns String value of specific dialogue
      */
     public String positiveDialogue() {
-        index = 0;
-        switch (index) {
+        switch (index2) {
             case 0:
-                index++;
+                index2++;
                 return dialogue.get(7);
             case 1:
-                index++;
+                index2++;
                 return dialogue.get(8);
             case 2:
                 return dialogue.get(9);
@@ -88,12 +87,12 @@ public class Taylor extends Character {
      * @return - returns String value of specific dialogue
      */
     public String neutralDialogue() {
-        switch (index) {
+        switch (index1) {
             case 0:
-                index++;
+                index1++;
                 return dialogue.get(0);
             case 1:
-                index = 0;
+                index1 = 0;
                 return dialogue.get(1);
         }
 

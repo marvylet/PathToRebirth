@@ -16,7 +16,9 @@ public abstract class Character {
     protected ArrayList<Integer> rooms;
     protected int relation;
     protected ArrayList<String> dialogue;
-    protected int index;
+    protected int index1;
+    protected int index2;
+    protected int index3;
     protected int charID;
     protected Inventory inv;
     protected Scanner sc;
@@ -25,7 +27,9 @@ public abstract class Character {
         this.name = name;
         rooms = new ArrayList<>();
         dialogue = new ArrayList<>();
-        index = 0;
+        index1 = 0;
+        index2 = 0;
+        index3 = 0;
         this.inv = inv;
         this.sc = sc;
     }

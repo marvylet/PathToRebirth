@@ -40,10 +40,9 @@ public class Ezra extends Character {
      * @return - returns String value of specific dialogue
      */
     public String positiveDialogue() {
-        index = 0;
-        switch (index){
+        switch (index2){
             case 0:
-                index++;
+                index2++;
                 return dialogue.get(8);
             case 1:
                 return dialogue.get(9);
@@ -80,18 +79,17 @@ public class Ezra extends Character {
      * @return - returns String value of specific dialogue
      */
     public String neutralDialogue() {
-        index = 0;
-        switch (index) {
+        switch (index1) {
             case 0:
-                index++;
+                index1++;
                 return dialogue.get(0);
 
             case 1:
-                index++;
+                index1++;
                 return dialogue.get(1);
 
             case 2:
-                index++;
+                index1++;
                 return dialogue.get(2);
 
             case 3:

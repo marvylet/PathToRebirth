@@ -27,13 +27,12 @@ public class Orson extends Character {
     }
 
     public String negativeDialogue() {
-        index = 0;
-        switch (index) {
+        switch (index3) {
             case 0:
-                index++;
+                index3++;
                 return dialogue.get(7);
             case 1:
-                index++;
+                index3++;
                 return dialogue.get(8);
             case 2:
                 return dialogue.get(9);
@@ -68,10 +67,10 @@ public class Orson extends Character {
      * @return - returns String value of specific dialogue
      */
     public String neutralDialogue() {
-        index = 0;
-        switch (index) {
+        index1 = 0;
+        switch (index1) {
             case 0:
-                index++;
+                index1++;
                 return dialogue.get(0);
             case 1:
                 return dialogue.get(1);
