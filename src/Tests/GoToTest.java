@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GoToTest {
     Inventory inv = new Inventory();
-    MansionMap map = new MansionMap(inv);
     Scanner sc = new Scanner(System.in);
+    MansionMap map = new MansionMap(inv, sc);
     GoTo go = new GoTo(map, sc);
 
     @org.junit.jupiter.api.Test

@@ -11,8 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GrabTest {
     Inventory inv = new Inventory();
-    MansionMap map = new MansionMap(inv);
     Scanner sc = new Scanner(System.in);
+    MansionMap map = new MansionMap(inv, sc);
+
     Grab grab = new Grab(inv, map, sc);
 
     @Test

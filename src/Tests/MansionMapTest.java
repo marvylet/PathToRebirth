@@ -4,11 +4,14 @@ import Map.Inventory;
 import Map.MansionMap;
 import org.junit.jupiter.api.Test;
 
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MansionMapTest {
     Inventory inv = new Inventory();
-    MansionMap map = new MansionMap(inv);
+    Scanner sc = new Scanner(System.in);
+    MansionMap map = new MansionMap(inv, sc);
 
     @Test
     void spawnRooms() {

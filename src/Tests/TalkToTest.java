@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TalkToTest {
     Inventory inv = new Inventory();
-    MansionMap map = new MansionMap(inv);
     Scanner sc = new Scanner(System.in);
+    MansionMap map = new MansionMap(inv, sc);
     TalkTo t = new TalkTo(map, sc);
 
     @Test
