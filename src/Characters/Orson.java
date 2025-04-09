@@ -27,7 +27,6 @@ public class Orson extends Character {
     }
 
     public String negativeDialogue() {
-        index = 0;
         switch (index) {
             case 0:
                 index++;

@@ -34,7 +34,6 @@ public class Aiysha extends Character {
      * @return - returns String value of specific dialogue
      */
     public String negativeDialogue() {
-        index = 0;
         switch (index) {
             case 0:
                 index++;
@@ -98,7 +97,6 @@ public class Aiysha extends Character {
      * @return - returns String value of specific dialogue
      */
     public String neutralDialogue() {
-        index = 0;
         switch (index) {
             case 0:
                 index++;

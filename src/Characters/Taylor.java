@@ -43,7 +43,6 @@ public class Taylor extends Character {
      * @return - returns String value of specific dialogue
      */
     public String positiveDialogue() {
-        index = 0;
         switch (index) {
             case 0:
                 index++;

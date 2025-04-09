@@ -34,7 +34,6 @@ public class Hajoon extends Character {
      * @return - returns String value of specific dialogue
      */
     public String negativeDialogue() {
-        index = 0;
         switch (index) {
             case 0:
                 index++;
