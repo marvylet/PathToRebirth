@@ -55,22 +55,6 @@ public abstract class Character {
         }
     }
 
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    public int getRelation() {
-        return relation;
-    }
-
-    public void setRelation(int relation) {
-        this.relation = relation;
-    }
-
     public abstract String getDialogue();
 
     public  int changeRelationPos(){
@@ -89,22 +73,7 @@ public abstract class Character {
     public void setName(String name) {
         this.name = name;
     }
-
-    public ArrayList<Integer> getRooms() {
-        return rooms;
-    }
-
-    public void setRooms(ArrayList<Integer> rooms) {
-        this.rooms = rooms;
-    }
-
-    public int getCharID() {
-        return charID;
-    }
-
-    public void setCharID(int charID) {
-        this.charID = charID;
-    }
+    
 
     /**
      * A factory method which is used in MansionMap when adding characters from a file in a room
